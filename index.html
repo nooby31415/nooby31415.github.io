@@ -56,6 +56,22 @@
 				left:calc(100% - 100px);
 				top:74%;
 			}
+			#sl{
+				left:calc(50% - 50px);
+				top:74%;
+			}
+			#sl_1{
+				left:0%;
+				top:30px;
+			}
+			#sl_2{
+				left:calc(50% - 200px);
+				top:30px;
+			}
+			#sl_3{
+				left:calc(100% - 400px);
+				top:30px;
+			}
 			#rt_mobile{
 				opacity:0;
 				width:100%;
@@ -68,10 +84,11 @@
 	<body>
 		<button id="rt_mobile"></button>
 		<div id="div">
-			<b>nooby3.1415</b>
+			<b>nooby31415</b>
 			<i>the page everyone needs</i>
 			<button id="rt">Rickroll Typer</button>
 			<button id="ab">About</button>
+			<button id="sl">Slots</button>
 		</div>
 		<div id="hi_div">
 			<p id="hi_text"></p>
@@ -82,9 +99,18 @@
 		<div id="ab_div">
 			<p>This website is created for no reason, idk I just wanted to do HTML5, JS, and CSS on a website to make it look cool.</p>
 		</div>
+		<div id="sl_div">
+			<p id="sl_text"></p>
+			<button id="sl_spin">Spin</button>
+			<img src="" id="sl_1">
+			<img src="" id="sl_2">
+			<img src="" id="sl_3">
+		</div>
 		<script>
 			var p=1;
 			var i=0;
+			var m=100;
+			var img=["","","","",""]; //add image names here
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
 			
 			document.getElementById("rt_div").style.display="none";
@@ -95,6 +121,7 @@
 				p=0;
 				document.getElementById("rt_div").style.display="block";
 				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
@@ -102,8 +129,17 @@
 				p=1;
 				document.getElementById("rt_div").style.display="none";
 				document.getElementById("ab_div").style.display="block";
+				document.getElementById("sl_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
+			}
+			document.getElementById("sl").onclick=function(){
+				p=2;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="block";
+				
+				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
 			
 			document.onkeypress=function(){
@@ -117,6 +153,28 @@
 					for(var r=0;r<5;r++){
 						document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
 						i+=1;
+					}
+				}
+			};
+			document.getElementById("sl_spin").onclick=function(){
+				if(p==2){
+					if(m>0){
+						m-=30;
+						var img1=img[Math.floor(Math.random()*5)];
+						var img2=img[Math.floor(Math.random()*5)];
+						var img3=img[Math.floor(Math.random()*5)];
+						document.getElementById("sl_1").src=img1;
+						document.getElementById("sl_2").src=img2;
+						document.getElementById("sl_3").src=img3;
+						if(img1==img2 and img2==img3 and img3==img1){
+							m+=75;
+						}else if(img1==img2 or img2==img3 or img3==img1){
+							m+=45;
+						}
+						document.getElementById("sl_text").innerHTML=m;
+					}else{
+						document.getElementById("sl_text").innerHTML="You lose";
+						m=100;
 					}
 				}
 			};
