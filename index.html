@@ -114,7 +114,9 @@
 			};
 			document.getElementById("rt_mobile").onclick=function(){
 				if(p==0){
-					document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
+					for(var r=0;r<5;r++){
+						document.getElementById("rt_text").innerHTML+=good.charAt((i+r)%good.length);
+					}
 					i+=1;
 				}
 			};
