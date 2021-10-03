@@ -3,30 +3,40 @@
 		<title>
 			nooby31415 page
 		</title>
+		<link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
 		<style>
 			body{
-				font-family:verdana;
+				font-family:'Bungee shade';
 				background-color:#DDDDFF;
 			}
 			#div{
 				background-color:#3344FF;
 				color:#FFFFFF;
 				text-align:center;
-				height:100px;
+				height:150px;
 				border-radius:12px;
 				font-size:60px;
 				position:relative;
 			}
 			button{
 				position:absolute;
+				transition-duration:0.4s;
 				border:none;
 				background-color:#77DDFF;
 				width:100px;
 				height:40px;
+				color:#FFFFFF;
 				border-radius:12px;
+			}
+			button:hover{
+				background-color:#0055DD;
 			}
 			#rt{
 				left:2%;
+				top:80%;
+			}
+			#ab{
+				left:96%;
 				top:80%;
 			}
 		</style>
@@ -36,14 +46,33 @@
 			<b>nooby3.1415	</b>
 			<i>	the page everyone needs</i>
 			<button id="rt">Rickroll Typer</button>
+			<button id="ab">About</button>
 		</div>
-		<p id="text"></p>
+		<div id="rt_div">
+			<p id="rt_text"></p>
+		</div>
+		<div id="ab_div">
+			<p>This website is created for no reason, idk I just wanted to do HTML5, JS, and CSS on a website to make it look cool.</p>
+		</div>
 		<script>
+			var p=0;
 			var i=0;
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
+			document.getElementById("rt").onclick=function(){
+				p=0;
+				document.getElementById("rt_div").style.display="block";
+				document.getElementById("ab_div").style.display="none";
+			}
+			document.getElementById("ab").onclick=function(){
+				p=0;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="block";
+			}
 			document.onkeypress = function(){
-				document.getElementById("text").innerHTML+=good.charAt(i%good.length);
-				i+=1;
+				if(p==0){
+					document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
+					i+=1;
+				}
 			};
 		</script>
 	</body>
