@@ -246,6 +246,7 @@
 					g-=5;
 					for(var n=0;n<100;n++){
 						var img=document.createElement("img");
+						document.getElementById('body').appendChild(img);
 						img.src="rickastley.png";
 						img.width="100";
 						img.height="100";
@@ -253,7 +254,6 @@
 						var rand2=Math.round(Math.random()*100);
 						img.style.top=rand1.toString()+"%";
 						img.style.left=rand2.toString()+"%";
-						document.getElementById('body').appendChild(img);
 					}
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
