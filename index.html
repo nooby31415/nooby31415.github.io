@@ -101,7 +101,7 @@
 				left:50px;
 			}
 			#sl_b5{
-				top:350px;
+				top:400px;
 				left:150px;
 			}
 		</style>
@@ -249,6 +249,10 @@
 						img.src="rickastley.png";
 						img.width="100";
 						img.height="100";
+						var rand1=Math.round(Math.random()*100);
+						var rand2=Math.round(Math.random()*100);
+						img.style.top=rand1.toString()+"%";
+						img.style.left=rand2.toString()+"%";
 					}
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
