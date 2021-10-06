@@ -111,6 +111,11 @@
 				top:420px;
 				left:500px;
 			}
+			#sl_char{
+				position:absolute;
+				top:250px;
+				left:400px;
+			}
 			
 		</style>
 		<style>
@@ -191,6 +196,7 @@
 			<p id="sl_dr3">
 				Epic:(20% common)(35% rare)(45% epic)
 			</p>
+			<img src="" id="sl_char" width="100" height="100">
 		</div>
 		<script>
 			var p=1;
@@ -204,10 +210,15 @@
 				["polish cow","rick astley"  ,"mc chicken","e"       ],
 				["shrek"     ,"epic rickroll","big mac"   ,"discord" ]
 			];
+			var char_img=[
+				["among us red.png","cheeseburger.png","favicon.png"  ,"amongusgreen.png"],
+				["polishcow.png"   ,"rickastley.png"  ,"mcchicken.png","E.png"           ],
+				["shrek.png"       ,"rickastley.png"  ,"bigmac.png"   ,"discord.png"     ]
+			];
 			var char_attack=[
-				["sus"         ,"mc donalds"             ,"oof"       ,"tasks"             ],
-				["kick"        ,"never gonna give you up","mc donalds","eeee"              ],
-				["shreksophone","never gonna give you up","mc donalds","ear blasting ping" ]
+				["sus"         ,"mc donalds"             ,"oof"       ,"tasks"            ],
+				["kick"        ,"never gonna give you up","mc donalds","eeee"             ],
+				["shreksophone","never gonna give you up","mc donalds","ear blasting ping"]
 			];
 			var char_min=[
 				[7,7,5,7],
@@ -242,6 +253,7 @@
 			document.getElementById("ab_div").style.display="block";
 			document.getElementById("sl_div").style.display="none";
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
+			document.getElementById("sl_char").style.visibility="hidden";
 			
 			document.getElementById("rt").onclick=function(){
 				p=0;
@@ -368,6 +380,8 @@
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+					document.getElementById("sl_char").style.visibility="visible";
+					document.getElementByid("sl_char").src=char_img[char_rarity][char_num];
 				}
 			};
 			document.getElementById("sl_b7").onclick=function(){
@@ -383,6 +397,8 @@
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+					document.getElementById("sl_char").style.visibility="visible";
+					document.getElementByid("sl_char").src=char_img[char_rarity][char_num];
 				}
 			};
 			document.getElementById("sl_b8").onclick=function(){
@@ -398,6 +414,8 @@
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+					document.getElementById("sl_char").style.visibility="visible";
+					document.getElementByid("sl_char").src=char_img[char_rarity][char_num];
 				}
 			};
 		</script>
