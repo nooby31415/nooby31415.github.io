@@ -199,6 +199,7 @@
 				[100,105,105,105],
 				[115,120,110,115]
 			];
+			var ranks=["Common","Rare","Epic"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
 			
@@ -259,6 +260,7 @@
 			document.getElementById("sl_spin").onclick=function(){
 				if(p==2){
 					m-=30;
+					g-=1;
 					var img1=img[randint(0,4)];
 					var img2=img[randint(0,4)];
 					var img3=img[randint(0,4)];
@@ -266,11 +268,11 @@
 					document.getElementById("sl_2").src=img2;
 					document.getElementById("sl_3").src=img3;
 					if(img1==img2 && img2==img3 && img3==img1){
-						m+=65;
-						g+=3;
-					}else if(img1==img2 || img2==img3 || img3==img1){
-						m+=40;
+						m+=55;
 						g+=2;
+					}else if(img1==img2 || img2==img3 || img3==img1){
+						m+=35;
+						g+=1;
 					}
 					if(m>0){
 						document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
@@ -327,6 +329,51 @@
 						img.style.zIndex="-1";
 					}
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+				}
+			};
+			document.getElementById("sl_b6").onclick=function(){
+				if(g>11){
+					g-=12;
+					var rand=randint(0,100);
+					if(rand<85){
+						char_rarity=0;
+					}else if(rand<95){
+						char_rarity=1;
+					}else{
+						char_rarity=2;
+					}
+					char_num=randint(0,3);
+					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+				}
+			};
+			document.getElementById("sl_b7").onclick=function(){
+				if(g>24){
+					g-=25;
+					var rand=randint(0,100);
+					if(rand<65){
+						char_rarity=1;
+					}else if(rand<90){
+						char_rarity=0;
+					}else{
+						char_rarity=2;
+					}
+					char_num=randint(0,3);
+					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+				}
+			};
+			document.getElementById("sl_b8").onclick=function(){
+				if(g>49){
+					g-=50;
+					var rand=randint(0,100);
+					if(rand<45){
+						char_rarity=2;
+					}else if(rand<80){
+						char_rarity=1;
+					}else{
+						char_rarity=0;
+					}
+					char_num=randint(0,3);
+					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 				}
 			};
 		</script>
