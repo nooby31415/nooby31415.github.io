@@ -98,17 +98,17 @@
 			}
 			#sl_dr1{
 				position:absolute;
-				top:320px;
+				top:345px;
 				left:500px;
 			}
 			#sl_dr2{
 				position:absolute;
-				top:380px;
+				top:395px;
 				left:500px;
 			}
 			#sl_dr3{
 				position:absolute;
-				top:420px;
+				top:445px;
 				left:500px;
 			}
 			#sl_char{
@@ -116,7 +116,6 @@
 				top:250px;
 				left:400px;
 			}
-			
 		</style>
 		<style>
 			#sl_b1{
@@ -149,6 +148,28 @@
 			}
 			#sl_b8{
 				top:450px;
+				left:400px;
+			}
+		</style>
+		<style>
+			#ba_ptext{
+				position:absolute;
+				top:150px;
+				left:0px;
+			}
+			#ba_etext{
+				position:absolute;
+				top:150px;
+				left:400px;
+			}
+			#ba_pchar{
+				position:absolute;
+				top:202px;
+				left:0px;
+			}
+			#ba_echar{
+				position:absolute;
+				top:202px;
 				left:400px;
 			}
 		</style>
@@ -196,15 +217,17 @@
 			<p id="sl_dr3">
 				Epic:(20% common)(35% rare)(45% epic)
 			</p>
-			<img src="" id="sl_char" width="100" height="100">
+			<img src="favicon.png" id="sl_char" width="100" height="100">
 		</div>
 		<div id="ba_div">
 			<p id="ba_ptext"></p>
 			<p id="ba_etext"></p>
+			<button id="ba_next">&gt;&gt;Next&gt;&gt;</button>
 			<img src="" id="ba_pchar" width="100" height="100">
 			<img src="" id="ba_echar" width="100" height="100">
 		</div>
 		<script>
+			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var p=1;
 			var i=0;
 			var m=100;
@@ -241,10 +264,15 @@
 				[100,105,105,105],
 				[115,120,110,115]
 			];
+			var char_php;
+			var char_ehp;
+			var char_erarity;
+			var char_enum;
+			var turn=0;
 			var ranks=["Common","Rare","Epic"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function randint(m,n){
 				if(m>n){
 					var p=m;
@@ -254,14 +282,14 @@
 				n++;
 				return Math.floor(Math.random()*(n-m))+m;
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
 			document.getElementById("sl_div").style.display="none";
 			document.getElementById("ba_div").style.display="none";
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			document.getElementById("sl_char").style.visibility="hidden";
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-RICKROLL TYPER
 			document.getElementById("rt").onclick=function(){
 				p=0;
 				document.getElementById("rt_div").style.display="block";
@@ -271,7 +299,7 @@
 				
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ABOUT
 			document.getElementById("ab").onclick=function(){
 				p=1;
 				document.getElementById("rt_div").style.display="none";
@@ -281,7 +309,7 @@
 				
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-SLOTS
 			document.getElementById("sl").onclick=function(){
 				p=2;
 				document.getElementById("rt_div").style.display="none";
@@ -291,7 +319,7 @@
 				
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-BATTLE
 			document.getElementById("ba").onclick=function(){
 				p=3;
 				document.getElementById("rt_div").style.display="none";
@@ -300,15 +328,25 @@
 				document.getElementById("ba_div").style.display="block";
 				
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
+				
+				document.getElementById("ba_pchar").src=char_img[char_rarity][char_num];
+				char_erarity=randint(0,2);
+				char_enum=randint(0,3);
+				char_php=char_hp[char_rarity][char_num];
+				char_ehp=char_hp[char_erarity][char_enum];
+				document.getElementById("ba_echar").src=char_img[char_erarity][char_enum];
+				document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
+				document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
+				
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
 				if(p==0){
 					document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
 					i+=1;
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.getElementById("rt_mobile").onclick=function(){
 				if(p==0){
 					for(var r=0;r<5;r++){
@@ -317,7 +355,7 @@
 					}
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
 			document.getElementById("sl_spin").onclick=function(){
 				if(p==2){
 					m-=30;
@@ -343,7 +381,7 @@
 					}
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-BUY
 			document.getElementById("sl_b1").onclick=function(){
 				if(g>1){
 					g-=2;
@@ -392,7 +430,7 @@
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-CHARS
 			document.getElementById("sl_b6").onclick=function(){
 				if(g>11){
 					g-=12;
@@ -442,6 +480,33 @@
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+				}
+			};
+			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
+			document.getElementById("ba_next").onclick=function(){
+				if(char_php>0 && char_ehp>0){
+					if(turn==0){
+						char_ehp-=randint(char_min[char_rarity][char_num],char_max[char_rarity][char_num])
+						document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP used "+char_attack[char_rarity][char_num];
+						document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
+						turn++;
+					}else if(turn==1){
+						char_php-=randint(char_min[char_erarity][char_enum],char_max[char_erarity][char_enum])
+						document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP used "+char_attack[char_erarity][char_enum];
+						document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
+						turn--;
+					}
+				}else{
+					if(char_php>0){
+						document.getElementById("ba_ptext").innerHTML="You win!";
+						var gain_m=char_erarity*randint(250,500);
+						m+=gain_m;
+						var gain_g=char_erarity*randint(15,25);
+						g+=gain_g;
+						document.getElementById("ba_etext").innerHTML="+$"+gain_m.toString()+" and +"gain_g.toString()+" gems";
+					}else{
+						document.getElementById("ba_ptext").innerHTML="You lose...";
+					}
 				}
 			};
 		</script>
