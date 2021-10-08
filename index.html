@@ -212,13 +212,13 @@
 			<button id="sl_b7">Rare<br/>Cost:25 gems</button>
 			<button id="sl_b8">Epic<br/>Cost:50 gems</button>
 			<p id="sl_dr1">
-				Common:(85% common)(10% rare)(5% epic)
+				Common:(80% common)(10% rare)(8% epic)(2% legendary)
 			</p>
 			<p id="sl_dr2">
-				Rare:(25% common)(65% rare)(10% epic)
+				Rare:(20% common)(60% rare)(14% epic)(6% legendary)
 			</p>
 			<p id="sl_dr3">
-				Epic:(20% common)(35% rare)(45% epic)
+				Epic:(15% common)(20% rare)(55% epic)(10% legendary)
 			</p>
 			<img src="favicon.png" id="sl_char" width="100" height="100">
 		</div>
@@ -236,36 +236,42 @@
 			var m=100;
 			var g=0;
 			var char_rarity=0;
-			var char_num=2;
+			var char_num=3;
 			var char_name=[
-				["impostor"  ,"cheeseburger" ,"noob"      ,"crewmate"],
-				["polish cow","rick astley"  ,"mc chicken","e"       ],
-				["shrek"     ,"epic rickroll","big mac"   ,"discord" ]
+				["muffin",      ,"impostor"  ,"happy meal"     ,"noob"        ,"crewmate"],
+				["polish cow"   ,"stickman"  ,"rick astley"    ,"cheeseburger","e"       ],
+				["shrek"        ,"mc chicken","epic rickroll"  ,"rubiks cube" ,"discord" ],
+				["nestle crunch","potato"    ,"legend rickroll","big mac"     ,"dream"   ]
 			];
 			var char_img=[
-				["among us red.png","cheeseburger.png","favicon.png"  ,"amongusgreen.png"],
-				["polishcow.png"   ,"rickastley.png"  ,"mcchicken.png","E.png"           ],
-				["shrek.png"       ,"rickastley.png"  ,"bigmac.png"   ,"discord.png"     ]
+				["muffin.png"      ,"among us red.png","happymeal.png" ,"favicon.png"     ,"amongusgreen.png"],
+				["polishcow.png"   ,"stickman.png"    ,"rickastley.png","cheeseburger.png","E.png"           ],
+				["shrek.png"       ,"mcchicken.png"   ,"rickastley.png","rubikscube.png"  ,"discord.png"     ],
+				["nestlecrunch.png","potato.png"      ,"rickastley.png","bigmac.png"      ,"dream.png"       ]
 			];
 			var char_attack=[
-				["sus"         ,"mc donalds"             ,"oof"       ,"tasks"            ],
-				["kick"        ,"never gonna give you up","mc donalds","eeee"             ],
-				["shreksophone","never gonna give you up","mc donalds","ear blasting ping"]
+				["die die dieee","sus"         ,"mc donalds"             ,"oof"       ,"tasks"            ],
+				["kick"         ,"stickboi"    ,"never gonna give you up","mc donalds","eeee"             ],
+				["shreksophone" ,"mc donalds"  ,"never gonna give you up","solve"     ,"ear blasting ping"],
+				["CRUNCH"       ,"potato"      ,"never gonna give you up","mc donalds","minecraft"        ]
 			];
 			var char_min=[
-				[7,7,5,7],
-				[6,7,7,8],
-				[8,8,7,7]
+				[6,7,7 ,5,7 ],
+				[7,6,7 ,7,8 ],
+				[8,8,8 ,7,8 ],
+				[9,9,10,9,10]
 			];
 			var char_max=[
-				[13,12,12,13],
-				[13,14,13,14],
-				[15,16,15,16]
+				[12,13,12,12,13],
+				[13,13,14,13,14],
+				[15,16,15,16,16],
+				[17,17,18,17,18]
 			];
 			var char_hp=[
-				[90 ,95 ,85 ,90 ],
-				[100,105,105,105],
-				[115,120,110,115]
+				[90 ,90 ,95 ,85 ,90 ],
+				[100,110,105,105,105],
+				[115,120,110,110,115],
+				[125,120,130,125,125]
 			];
 			var char_php;
 			var char_ehp;
@@ -333,8 +339,8 @@
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 				
 				document.getElementById("ba_pchar").src=char_img[char_rarity][char_num];
-				char_erarity=randint(0,2);
-				char_enum=randint(0,3);
+				char_erarity=randint(0,3);
+				char_enum=randint(0,4);
 				char_php=char_hp[char_rarity][char_num];
 				char_ehp=char_hp[char_erarity][char_enum];
 				document.getElementById("ba_echar").src=char_img[char_erarity][char_enum];
@@ -438,12 +444,14 @@
 				if(g>11){
 					g-=12;
 					var rand=randint(0,100);
-					if(rand<85){
+					if(rand<80){
 						char_rarity=0;
-					}else if(rand<95){
+					}else if(rand<90){
 						char_rarity=1;
-					}else{
+					}else if(rand<98){
 						char_rarity=2;
+					}else{
+						char_rarity=3;
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
@@ -455,12 +463,14 @@
 				if(g>24){
 					g-=25;
 					var rand=randint(0,100);
-					if(rand<65){
-						char_rarity=1;
-					}else if(rand<90){
+					if(rand<20){
 						char_rarity=0;
-					}else{
+					}else if(rand<80){
+						char_rarity=1;
+					}else if(rand<94){
 						char_rarity=2;
+					}else{
+						char_rarity=3;
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
@@ -472,12 +482,14 @@
 				if(g>49){
 					g-=50;
 					var rand=randint(0,100);
-					if(rand<45){
-						char_rarity=2;
-					}else if(rand<80){
-						char_rarity=1;
-					}else{
+					if(rand<15){
 						char_rarity=0;
+					}else if(rand<35){
+						char_rarity=1;
+					}else if(rand<90){
+						char_rarity=2;
+					}else{
+						char_rarity=3;
 					}
 					char_num=randint(0,3);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
@@ -497,6 +509,9 @@
 						char_php-=randint(char_min[char_erarity][char_enum],char_max[char_erarity][char_enum])
 						document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP used "+char_attack[char_erarity][char_enum];
 						document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
+						if(char_php<=0){
+							document.getElementById("ba_ptext").innerHTML="You lose...";
+						}
 						turn--;
 					}
 				}else{
