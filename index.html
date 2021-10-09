@@ -229,6 +229,14 @@
 			<img src="" id="ba_pchar" width="100" height="100">
 			<img src="" id="ba_echar" width="100" height="100">
 		</div>
+		<div id="sa_div">
+			<p>Save code:<br/></p>
+			<p id="sa_code">000010000000000100<br/></p>
+			<p>Load code:<br/></p>
+			<input type="text" id="sa_loadt"></input>
+			<button id="sa_loadb">Load</button>
+			<p id="sa_text"><br/>Success</p>
+		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var p=1;
@@ -296,6 +304,7 @@
 			document.getElementById("ab_div").style.display="block";
 			document.getElementById("sl_div").style.display="none";
 			document.getElementById("ba_div").style.display="none";
+			document.getElementById("sa_div").style.display="none";
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			document.getElementById("sl_char").style.visibility="hidden";
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-RICKROLL TYPER
@@ -305,6 +314,7 @@
 				document.getElementById("ab_div").style.display="none";
 				document.getElementById("sl_div").style.display="none";
 				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
@@ -315,6 +325,7 @@
 				document.getElementById("ab_div").style.display="block";
 				document.getElementById("sl_div").style.display="none";
 				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
@@ -325,6 +336,7 @@
 				document.getElementById("ab_div").style.display="none";
 				document.getElementById("sl_div").style.display="block";
 				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
@@ -335,6 +347,7 @@
 				document.getElementById("ab_div").style.display="none";
 				document.getElementById("sl_div").style.display="none";
 				document.getElementById("ba_div").style.display="block";
+				document.getElementById("sa_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 				
@@ -347,6 +360,36 @@
 				document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
 				document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
 				
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-SAVE/LOAD
+			document.getElementById("sa").onclick=function(){
+				p=4;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="none";
+				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="block";
+				
+				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
+				var m_save=m.toString;
+				for(var iter=0;iter<7-m_save.length;iter++){
+					m_save="0"+m.save;
+				}
+				var g_save=g.toString;
+				for(var iter=0;iter<7-g_save.length;iter++){
+					g_save="0"+g.save;
+				}
+				var m_hash;
+				var g_hash;
+				for(var iter=0;iter<7;iter++){
+					m_hash+=parseInt(m_save.charAt(iter));
+					g_hash+=parseInt(g_save.charAt(iter));
+				}
+				m_hash=m_hash.toString();
+				g_hash=g_hash.toString();
+				if(parseInt(m_hash)<10){m_hash="0"+m_hash;}
+				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
+				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash;
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
