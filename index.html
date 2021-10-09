@@ -505,9 +505,9 @@
 					document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
 					if(char_ehp<=0){
 						document.getElementById("ba_ptext").innerHTML="You win!";
-						var gain_m=(char_erarity+1)*randint(250,500);
+						var gain_m=(char_erarity+1)*randint(100,300);
 						m+=gain_m;
-						var gain_g=(char_erarity+1)*randint(15,25);
+						var gain_g=(char_erarity+1)*randint(8,18);
 						g+=gain_g;
 						document.getElementById("ba_etext").innerHTML="$"+(gain_m.toString())+","+(gain_g.toString())+" gems";
 						turn=100;
