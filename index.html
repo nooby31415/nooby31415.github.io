@@ -391,7 +391,8 @@
 				g_hash=g_hash.toString();
 				if(parseInt(m_hash)<10){m_hash="0"+m_hash;}
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
-				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash;
+				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+char_rarity+char_num;
+				//                                              7  +   7  +   2  +   2  +     1     +   1
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
