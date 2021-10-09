@@ -372,15 +372,17 @@
 				
 				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 				var m_save=m.toString();
-				for(var iter=0;iter<7-m_save.length;iter++){
+				var m_savel=m_save.length;
+				for(var iter=0;iter<7-m_savel;iter++){
 					m_save="0"+m_save;
 				}
 				var g_save=g.toString();
-				for(var iter=0;iter<7-g_save.length;iter++){
+				var g_savel=g_save.length;
+				for(var iter=0;iter<7-g_savel;iter++){
 					g_save="0"+g_save;
 				}
-				var m_hash;
-				var g_hash;
+				var m_hash=0;
+				var g_hash=0;
 				for(var iter=0;iter<7;iter++){
 					m_hash+=parseInt(m_save.charAt(iter));
 					g_hash+=parseInt(g_save.charAt(iter));
@@ -401,7 +403,7 @@
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.getElementById("rt_mobile").onclick=function(){
 				if(p==0){
-					for(var r=0;r<5;r++){
+					for(var iter=0;iter<5;iter++){
 						document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
 						i+=1;
 					}
