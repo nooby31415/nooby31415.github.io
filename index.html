@@ -499,32 +499,37 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
 			document.getElementById("ba_next").onclick=function(){
-				if(char_php>0 && char_ehp>0){
-					if(turn==0){
-						char_ehp-=randint(char_min[char_rarity][char_num],char_max[char_rarity][char_num])
-						document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP used "+char_attack[char_rarity][char_num];
-						document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
-						turn++;
-					}else if(turn==1){
-						char_php-=randint(char_min[char_erarity][char_enum],char_max[char_erarity][char_enum])
-						document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP used "+char_attack[char_erarity][char_enum];
-						document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
-						if(char_php<=0){
-							document.getElementById("ba_ptext").innerHTML="You lose...";
-						}
-						turn--;
-					}
-				}else{
-					if(char_php>0){
+				if(turn==0){
+					char_ehp-=randint(char_min[char_rarity][char_num],char_max[char_rarity][char_num])
+					document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP used "+char_attack[char_rarity][char_num];
+					document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
+					if(char_ehp<=0){
 						document.getElementById("ba_ptext").innerHTML="You win!";
 						var gain_m=(char_erarity+1)*randint(250,500);
 						m+=gain_m;
 						var gain_g=(char_erarity+1)*randint(15,25);
 						g+=gain_g;
 						document.getElementById("ba_etext").innerHTML="$"+(gain_m.toString())+","+(gain_g.toString())+" gems";
-					}else{
-						document.getElementById("ba_ptext").innerHTML="You lose...";
+						turn=100;
 					}
+					turn++;
+				}else if(turn==1){
+					char_php-=randint(char_min[char_erarity][char_enum],char_max[char_erarity][char_enum])
+					document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP used "+char_attack[char_erarity][char_enum];
+					document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
+					if(char_php<=0){
+						document.getElementById("ba_ptext").innerHTML="You lose...";
+						turn=100;
+					}
+					turn--;
+				}else{
+					char_erarity=randint(0,3);
+					char_enum=randint(0,4);
+					char_php=char_hp[char_rarity][char_num];
+					char_ehp=char_hp[char_erarity][char_enum];
+					document.getElementById("ba_echar").src=char_img[char_erarity][char_enum];
+					document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
+					document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
 				}
 			};
 		</script>
