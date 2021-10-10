@@ -596,6 +596,12 @@
 				}
 				m_ahash=m_ahash.toString();
 				g_ahash=g_ahash.toString();
+				if(parseInt(m_ahash)<10){
+					m_ahash="0"+m_ahash;
+				}
+				if(parseInt(g_ahash)<10){
+					g_ahash="0"+g_ahash;
+				}
 				console.log(m_ahash+" "+g_ahash+"<- actual calc");
 				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
 					document.getElementById("sa_text").innerHTML="Success"
