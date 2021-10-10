@@ -52,6 +52,9 @@
 			#ba_next{
 				top:350px;
 			}
+			#rt_mobile{
+				top:100%;
+			}
 		</style>
 		<style>
 			#rt{
@@ -226,9 +229,9 @@
 			<p>Save code:<br/></p>
 			<p id="sa_code">000010000000000100<br/></p>
 			<p>Load code:<br/></p>
-			<input type="text" id="sa_loadt"></input>
+			<input type="number" id="sa_loadt"></input>
 			<button id="sa_loadb">Load</button>
-			<p id="sa_text"><br/>Success</p>
+			<p id="sa_text">Success</p>
 		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
@@ -385,7 +388,6 @@
 				if(parseInt(m_hash)<10){m_hash="0"+m_hash;}
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
 				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+char_rarity+char_num;
-				//                                              7  +   7  +   2  +   2  +     1     +   1
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
@@ -396,11 +398,9 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.getElementById("rt_mobile").onclick=function(){
-				if(p==0){
-					for(var iter=0;iter<5;iter++){
-						document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
-						i+=1;
-					}
+				for(var iter=0;iter<5;iter++){
+					document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
+					i+=1;
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
@@ -570,6 +570,37 @@
 					document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP";
 					document.getElementById("ba_etext").innerHTML=char_name[char_erarity][char_enum]+"-"+char_ehp+"HP";
 					turn=0;
+				}
+			};
+			//
+			document.getElementById("sa_loadb").onclick=function(){
+				var m_save="";
+				var g_save="";
+				var code=document.getElementById("sa_loadt").value;
+				for(var iter=0;iter<7;iter++){
+					m_save+=code.charAt(iter);
+				}
+				for(var iter=7;iter<14;iter++){
+					g_save+=code.charAt(iter);
+				}
+				var m_hash=code.charAt(14)+code.charAt(15);
+				var g_hash=code.charAt(16)+code.charAt(17);
+				var m_ahash=0;
+				var g_ahash=0;
+				for(var iter=0;iter<7;iter++){
+					m_ahash+=parseInt(m_save.charAt(iter));
+					g_ahash+=parseInt(g_save.charAt(iter));
+				}
+				m_ahash=m_ahash.toString();
+				g_ahash=g_ahash.toString();
+				if(m_hash==m_ahash && g_hash==g_ahash){
+					document.getElementById("sa_text").innerHTML="Success"
+					m=parseInt(m_save);
+					g=parseInt(g_save);
+					char_rarity=parseInt(code.charAt(18));
+					char_num=parseInt(code.charAt(19));
+				}else{
+					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct"
 				}
 			};
 		</script>
