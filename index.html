@@ -572,19 +572,22 @@
 					turn=0;
 				}
 			};
-			//
+			//////////////////////////////////////////////////////////////////////////////////////////////SAVE/LOAD-LOAD
 			document.getElementById("sa_loadb").onclick=function(){
 				var m_save="";
 				var g_save="";
 				var code=document.getElementById("sa_loadt").value;
 				for(var iter=0;iter<7;iter++){
 					m_save+=code.charAt(iter);
+					console.log(code.charAt(iter)+" "+iter.toString());
 				}
 				for(var iter=7;iter<14;iter++){
 					g_save+=code.charAt(iter);
+					console.log(code.charAt(iter)+" "+iter.toString());
 				}
 				var m_hash=code.charAt(14)+code.charAt(15);
 				var g_hash=code.charAt(16)+code.charAt(17);
+				console.log(m_hash+" "+g_hash+"<- code says");
 				var m_ahash=0;
 				var g_ahash=0;
 				for(var iter=0;iter<7;iter++){
@@ -593,6 +596,7 @@
 				}
 				m_ahash=m_ahash.toString();
 				g_ahash=g_ahash.toString();
+				console.log(m_hash+" "+g_hash+"<- actual calc");
 				if(m_hash==m_ahash && g_hash==g_ahash){
 					document.getElementById("sa_text").innerHTML="Success"
 					m=parseInt(m_save);
