@@ -35,6 +35,8 @@
 			}
 			#hi_text{
 				margin:0px;
+				top:5px;
+    				position:relative;
 			}
 			button{
 				position:absolute;
@@ -231,7 +233,7 @@
 			<p>Load code:<br/></p>
 			<input type="text" id="sa_loadt"></input>
 			<button id="sa_loadb">Load</button>
-			<p id="sa_text">Success</p>
+			<p id="sa_text"></p>
 		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
@@ -579,15 +581,12 @@
 				var code=document.getElementById("sa_loadt").value;
 				for(var iter=0;iter<7;iter++){
 					m_save+=code.charAt(iter);
-					console.log(code.charAt(iter)+" "+iter.toString());
 				}
 				for(var iter=7;iter<14;iter++){
 					g_save+=code.charAt(iter);
-					console.log(code.charAt(iter)+" "+iter.toString());
 				}
 				var m_hash=code.charAt(14)+code.charAt(15);
 				var g_hash=code.charAt(16)+code.charAt(17);
-				console.log(m_hash+" "+g_hash+"<- code says");
 				var m_ahash=0;
 				var g_ahash=0;
 				for(var iter=0;iter<7;iter++){
@@ -602,7 +601,6 @@
 				if(parseInt(g_ahash)<10){
 					g_ahash="0"+g_ahash;
 				}
-				console.log(m_ahash+" "+g_ahash+"<- actual calc");
 				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
 					document.getElementById("sa_text").innerHTML="Success"
 					m=parseInt(m_save);
