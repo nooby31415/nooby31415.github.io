@@ -229,7 +229,7 @@
 			<p>Save code:<br/></p>
 			<p id="sa_code">000010000000000100<br/></p>
 			<p>Load code:<br/></p>
-			<input type="number" id="sa_loadt"></input>
+			<input type="text" id="sa_loadt"></input>
 			<button id="sa_loadb">Load</button>
 			<p id="sa_text">Success</p>
 		</div>
@@ -597,7 +597,7 @@
 				m_ahash=m_ahash.toString();
 				g_ahash=g_ahash.toString();
 				console.log(m_hash+" "+g_hash+"<- actual calc");
-				if(m_hash==m_ahash && g_hash==g_ahash){
+				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
 					document.getElementById("sa_text").innerHTML="Success"
 					m=parseInt(m_save);
 					g=parseInt(g_save);
