@@ -83,6 +83,10 @@
 				left:calc(12.5% - 12.5px);
 				top:74%;
 			}
+			#ar{
+				left:calc(87.5% - 87.5px);
+				top:74%;
+			}
 		</style>
 		<style>
 			#sl_1{
@@ -189,6 +193,7 @@
 			<button id="ba">Battle</button>
 			<button id="sa">Save/Load</button>
 			<button id="in">Inventory</button>
+			<button id="ar">Art</button>
 		</div>
 		<div id="hi_div">
 			<p id="hi_text"></p>
@@ -198,7 +203,7 @@
 			<p id="rt_text"></p>
 		</div>
 		<div id="ab_div">
-			<p>This website is created for no reason, idk this was originally intended to be a joke website for me & my friends, but if you can, pls share this website =) Also save/load and inventory are under construction :P</p>
+			<p>This website is created for no reason, idk this was originally intended to be a joke website for me & my friends, but if you can, pls share this website =) Also inventory are under construction :P</p>
 		</div>
 		<div id="sl_div">
 			<p id="sl_text"></p>
@@ -261,6 +266,9 @@
 			<button id="17" style="width:100px; height:100px;"><img src="" id="i17" width="100" height="100"></button>
 			<button id="18" style="width:100px; height:100px;"><img src="" id="i18" width="100" height="100"></button>
 			<button id="19" style="width:100px; height:100px;"><img src="" id="i19" width="100" height="100"></button>
+		</div>
+		<div id="ar_div">
+			<canvas id="ar_canvas" width="500" height="500"></canvas>
 		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
@@ -331,6 +339,7 @@
 			document.getElementById("ba_div").style.display="none";
 			document.getElementById("sa_div").style.display="none";
 			document.getElementById("in_div").style.display="none";
+			document.getElementById("ar_div").style.display="none";
 			
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			document.getElementById("sl_char").style.visibility="hidden";
@@ -343,7 +352,8 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				
+				document.getElementById("ar_div").style.display="none";
+
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ABOUT
@@ -355,6 +365,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
+				document.getElementById("ar_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
@@ -367,6 +378,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
+				document.getElementById("ar_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
@@ -379,6 +391,7 @@
 				document.getElementById("ba_div").style.display="block";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
+				document.getElementById("ar_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 				
@@ -401,6 +414,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="block";
 				document.getElementById("in_div").style.display="none";
+				document.getElementById("ar_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 				var m_save=m.toString();
@@ -425,24 +439,38 @@
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
 				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+char_rarity+char_num;
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-INVENTORY
 			document.getElementById("in").onclick=function(){
-				p=4;
+				p=5;
 				document.getElementById("rt_div").style.display="none";
 				document.getElementById("ab_div").style.display="none";
 				document.getElementById("sl_div").style.display="none";
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="block";
+				document.getElementById("ar_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 				
 				for(var iter=0;iter<20;iter++){
-					//document.getElementById("i"+iter.toString()).src=char_img[Math.floor((iter+1)/5)][iter%5];
+					document.getElementById("i"+iter.toString()).src=char_img[Math.floor((iter+1)/5)][iter%5];
 					document.getElementById(iter.toString()).style.position="absolute";
 					document.getElementById(iter.toString()).style.top=(Math.floor((iter+1)/5)*100+200).toString();
 					document.getElementById(iter.toString()).style.left=((iter%5)*100).toString();
 				}
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ART
+			document.getElementById("ar").onclick=function(){
+				p=6;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="none";
+				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
+				document.getElementById("in_div").style.display="none";
+				document.getElementById("ar_div").style.display="block";	
+				
+				document.getElementById("hi_text").innerHTML="Draw";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
