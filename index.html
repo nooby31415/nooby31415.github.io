@@ -438,7 +438,7 @@
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 				
 				for(var iter=0;iter<20;iter++){
-					document.getElementById("i"+iter.toString()).src=char_img[Math.floor((iter+1)/5)][iter%5];
+					//document.getElementById("i"+iter.toString()).src=char_img[Math.floor((iter+1)/5)][iter%5];
 					document.getElementById(iter.toString()).style.position="absolute";
 					document.getElementById(iter.toString()).style.top=(Math.floor((iter+1)/5)*100+200).toString();
 					document.getElementById(iter.toString()).style.left=((iter%5)*100).toString();
