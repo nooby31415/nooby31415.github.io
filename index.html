@@ -458,10 +458,12 @@
 				
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 				
-				for(var iter1=0;iter1<3;iter1++){
-					for(var iter2=0;iter2<4;iter2++){
+				for(var iter1=0;iter1<4;iter1++){
+					for(var iter2=0;iter2<5;iter2++){
 						if(char_exists[iter1][iter2]==0){
 							document.getElementById((iter1*5+iter2).toString()).style.visibility="hidden";
+						}else{
+							document.getElementById((iter1*5+iter2).toString()).style.visibility="visible";
 						}
 						document.getElementById("i"+(iter1*5+iter2).toString()).src=char_img[iter1][iter2];
 						document.getElementById((iter1*5+iter2).toString()).style.position="absolute";
