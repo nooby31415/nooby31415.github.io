@@ -314,6 +314,12 @@
 				[115,120,110,110,115],
 				[125,120,130,125,125]
 			];
+			var char_exists=[
+				[0,0,0,1,0],
+				[0,0,0,0,0],
+				[0,0,0,0,0],
+				[0,0,0,0,0]
+			];
 			var char_php;
 			var char_ehp;
 			var char_erarity;
@@ -452,11 +458,17 @@
 				
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 				
-				for(var iter=0;iter<20;iter++){
-					document.getElementById("i"+iter.toString()).src=char_img[Math.floor(iter/5)][iter%5];
-					document.getElementById(iter.toString()).style.position="absolute";
-					document.getElementById(iter.toString()).style.top=(Math.floor(iter/5)*100+200).toString()+"px";
-					document.getElementById(iter.toString()).style.left=((iter%5)*100).toString()+"px";
+				for(var iter1=0;iter1<3;iter1++){
+					for(var iter2=0;iter2<4;iter2++){
+						if(char_exists[iter1][iter2]==0){
+							document.getElementById((iter1*5+iter2).toString()).style.visibility="hidden";
+						}
+						document.getElementById("i"+(iter1*5+iter2).toString()).src=char_img[iter1][iter2];
+						document.getElementById((iter1*5+iter2).toString()).style.position="absolute";
+						document.getElementById((iter1*5+iter2).toString()).style.top=(iter1*100+200).toString()+"px";
+						document.getElementById((iter1*5+iter2).toString()).style.left=(iter2*100).toString()+"px";
+					}
+
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ART
@@ -579,6 +591,7 @@
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					char_exists[char_rarity][char_num]=1;
 				}
 			};
 			document.getElementById("sl_b7").onclick=function(){
@@ -598,6 +611,7 @@
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					char_exists[char_rarity][char_num]=1;
 				}
 			};
 			document.getElementById("sl_b8").onclick=function(){
@@ -617,6 +631,7 @@
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					char_exists[char_rarity][char_num]=1;
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
