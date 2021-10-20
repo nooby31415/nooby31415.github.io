@@ -342,6 +342,9 @@
 				n++;
 				return Math.floor(Math.random()*(n-m))+m;
 			};
+			function complex2(re,im){
+				return [re**2-im**2,2*re*im];
+			}
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
@@ -489,6 +492,8 @@
 				document.getElementById("ma_div").style.display="block";	
 				
 				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set";
+				
+				
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
