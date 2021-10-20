@@ -83,7 +83,7 @@
 				left:calc(12.5% - 12.5px);
 				top:74%;
 			}
-			#ar{
+			#ma{
 				left:calc(87.5% - 87.5px);
 				top:74%;
 			}
@@ -193,7 +193,7 @@
 			<button id="ba">Battle</button>
 			<button id="sa">Save/Load</button>
 			<button id="in">Inventory</button>
-			<button id="ar">Art</button>
+			<button id="ma">Mandelbrot</button>
 		</div>
 		<div id="hi_div">
 			<p id="hi_text"></p>
@@ -267,8 +267,8 @@
 			<button id="18" style="width:100px; height:100px;"><img src="" id="i18" width="100" height="100"></button>
 			<button id="19" style="width:100px; height:100px;"><img src="" id="i19" width="100" height="100"></button>
 		</div>
-		<div id="ar_div">
-			<canvas id="ar_canvas" width="500" height="500"></canvas>
+		<div id="ma_div">
+			<canvas id="ma_canvas" width="1000" height="1000" style="border:1px solid #000000;"></canvas>
 		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
@@ -345,7 +345,7 @@
 			document.getElementById("ba_div").style.display="none";
 			document.getElementById("sa_div").style.display="none";
 			document.getElementById("in_div").style.display="none";
-			document.getElementById("ar_div").style.display="none";
+			document.getElementById("ma_div").style.display="none";
 			
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			document.getElementById("sl_char").style.visibility="hidden";
@@ -358,7 +358,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="none";
+				document.getElementById("ma_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
@@ -371,7 +371,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="none";
+				document.getElementById("ma_div").style.display="none";
 				
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
@@ -384,7 +384,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="none";	
+				document.getElementById("ma_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
@@ -397,7 +397,7 @@
 				document.getElementById("ba_div").style.display="block";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="none";	
+				document.getElementById("ma_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 				
@@ -420,7 +420,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="block";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="none";	
+				document.getElementById("ma_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 				var m_save=m.toString();
@@ -454,7 +454,7 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="block";
-				document.getElementById("ar_div").style.display="none";	
+				document.getElementById("ma_div").style.display="none";	
 				
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 				
@@ -474,7 +474,7 @@
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ART
-			document.getElementById("ar").onclick=function(){
+			document.getElementById("ma").onclick=function(){
 				p=6;
 				document.getElementById("rt_div").style.display="none";
 				document.getElementById("ab_div").style.display="none";
@@ -482,9 +482,9 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ar_div").style.display="block";	
+				document.getElementById("ma_div").style.display="block";	
 				
-				document.getElementById("hi_text").innerHTML="Draw";
+				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
