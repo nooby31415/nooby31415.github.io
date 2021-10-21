@@ -347,15 +347,6 @@
 			function complex2(re,im){
 				return [re**2-im**2,2*re*im];
 			}
-			function f(cre,cim,zre,zim,iter){
-				if(Math.sqrt(zre**2+zim^^2)>=2){
-					return colors[iter]
-				}
-				if(iter>=max){
-					return "#000000"
-				}
-				return [complex2(zre,zim)[0]+cre];
-			}
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
@@ -504,7 +495,16 @@
 				
 				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set";
 				
-				
+				var canvas=document.getElementById("ma_canvas");
+				var ctx=canvas.getContext("2d");
+				for(var x=0;x<800;x++){
+					for(var y=0;y<400;y++){
+						var xpos=(x-400)/200;
+						var ypos=(200-y)/100;
+						ctx.fillStyle=colors[(x+y)%8];
+						ctx.fillRect(xpos,ypos,1,1);
+					}
+				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
 			document.onkeypress=function(){
