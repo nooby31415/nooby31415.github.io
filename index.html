@@ -60,7 +60,7 @@
 			}
 			#ma_canvas{
 				left:-18px;
-    				top:-10px;
+    				top:5px;
 				position:relative;
 			}
 		</style>
@@ -354,6 +354,9 @@
 			function complexadd(comp1,comp2){
 				return [comp1[0]+comp2[0],comp1[1]+comp2[1]]
 			}
+			function log2(n){
+				return Math.log(n)/Math.log(2);
+			}
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
@@ -517,7 +520,7 @@
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=colors[Math.floor(iter+1/15)];
+								ctx.fillStyle=colors[Math.floor(2*(log2(iter)+1))];
 								break;
 							}
 						}
@@ -535,7 +538,7 @@
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
 						var xpos=((x-mouseX)-256)/128;
-						var ypos=(256-(y-mouseY))/128;
+						var ypos=(256-(y-mouseY+100))/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<128;iter++){
@@ -545,7 +548,7 @@
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=colors[Math.floor(iter+1/15)];
+								ctx.fillStyle=colors[Math.floor(2*(log2(iter)+1))];
 								break;
 							}
 						}
