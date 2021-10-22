@@ -280,6 +280,8 @@
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
 			var mouseY=0;
+			var shiftX=0;
+			var shiftY=0;
 			var p=1;
 			var i=0;
 			var m=100;
@@ -548,14 +550,14 @@
 						var ypos=(256-(y-mouseY+428))/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
-						for(var iter=0;iter<128;iter++){
+						for(var iter=0;iter<max;iter++){
 							z=complexadd(complex2(z),c);
-							if(iter==127){
+							if(iter==max-1){
 								ctx.fillStyle="#000000";
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=rgb2hex(Math.floor(128*Math.cos(iter*(Math.PI/64))+1),Math.floor(128*Math.sin(iter*(Math.PI/64))+1),Math.floor(256-(128*Math.cos(iter*(Math.PI/64))+1)));
+								ctx.fillStyle=rgb2hex(Math.floor(128*Math.cos(iter*(Math.PI/128))+1),Math.floor(128*Math.sin(iter*(Math.PI/128))+1),Math.floor(256-(128*Math.cos(iter*(Math.PI/128))+1)));
 								break;
 							}
 						}
