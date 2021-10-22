@@ -589,7 +589,7 @@
 				zoom=1;
 				mandel();
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICK
+			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 			document.getElementById("ma_canvas").onmousedown=function(){
 				click=true;
 			}
@@ -608,8 +608,8 @@
 				if(click){
 					mouseX=event.clientX;
 					mouseY=event.clientY;
-					shiftX=(mouseX+128)/zoom;
-					shiftY=(mouseY+428)/zoom;
+					shiftX=(mouseX+128-shiftX)/zoom;
+					shiftY=(mouseY+428-shiftY)/zoom;
 
 					mandel();
 				}
