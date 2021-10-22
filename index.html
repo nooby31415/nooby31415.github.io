@@ -509,12 +509,12 @@
 						var c=[xpos,ypos]
 						for(var iter=0;iter<128;iter++){
 							z=complexadd(complex2(z),c);
+							if(iter==127){
+								ctx.fillStyle=colors[16];
+								break;
+							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								if(iter==127){
-									ctx.fillStyle=colors[16];
-								}else{
-									ctx.fillStyle=colors[Math.floor(iter/16)];
-								}
+								ctx.fillStyle=colors[Math.floor(iter/16)];
 								break;
 							}
 						}
