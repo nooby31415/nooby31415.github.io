@@ -517,7 +517,7 @@
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=colors[Math.floor(iter/16)];
+								ctx.fillStyle=colors[Math.floor(iter+1/15)];
 								break;
 							}
 						}
@@ -535,7 +535,7 @@
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
 						var xpos=((x-mouseX)-256)/128;
-						var ypos=(256-(y-mouseY-100))/128;
+						var ypos=(256-(y-mouseY))/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<128;iter++){
