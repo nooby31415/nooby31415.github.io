@@ -497,12 +497,12 @@
 				
 				var canvas=document.getElementById("ma_canvas");
 				var ctx=canvas.getContext("2d");
-				for(var x=0;x<800;x+=2){
-					for(var y=0;y<400;y+=2){
+				for(var x=0;x<800;x++){
+					for(var y=0;y<400;y++){
 						var xpos=(x-400)/200;
 						var ypos=(200-y)/100;
 						ctx.fillStyle=colors[(x+y)%16];
-						ctx.fillRect(x,y,2,2);
+						ctx.fillRect(x,y,1,1);
 					}
 				}
 			}
