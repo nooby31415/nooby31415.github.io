@@ -417,8 +417,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=(x-256)/128;
-						var ypos=(256-y)/128;
+						var xpos=((x-shiftX)-256)/(128*zoom);
+						var ypos=(256-(y-shiftY))/(128*zoom);
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<252;iter++){
@@ -584,6 +584,9 @@
 				
 				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set";
 				
+				shiftX=0;
+				shiftY=0;
+				zoom=1;
 				mandel();
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICK
@@ -598,7 +601,7 @@
 				mandel();
 			}
 			document.getElementById("ma_zoomout").onclick=function(){
-				zoom++;
+				zoom--;
 				mandel();
 			}
 			document.getElementById("ma_canvas").onmousemove=function(event){
@@ -608,28 +611,7 @@
 					shiftX=(mouseX+128)/zoom;
 					shiftY=(mouseY+428)/zoom;
 
-					var canvas=document.getElementById("ma_canvas")
-					var ctx=canvas.getContext("2d");
-					for(var x=0;x<512;x+=2){
-						for(var y=0;y<512;y+=2){
-							var xpos=((x-shiftX)-256)/(128*zoom);
-							var ypos=(256-(y-shiftY))/(128*zoom);
-							var z=[0,0];
-							var c=[xpos,ypos]
-							for(var iter=0;iter<252;iter++){
-								z=complexadd(complex2(z),c);
-								if(iter==251){
-									ctx.fillStyle="#000000";
-									break;
-								}
-								if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-									ctx.fillStyle=rgb2hex(c_r[iter],c_g[iter],c_b[iter]);
-									break;
-								}
-							}
-							ctx.fillRect(x,y,2,2);
-						}
-					}
+					mandel();
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
