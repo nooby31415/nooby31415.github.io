@@ -489,7 +489,7 @@
 
 				}
 			}
-			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-ART
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-MANDELBROT
 			document.getElementById("ma").onclick=function(){
 				p=6;
 				document.getElementById("rt_div").style.display="none";
@@ -506,8 +506,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x-mouseX)-256)/128;
-						var ypos=(256-(y+mouseY-150))/128;
+						var xpos=(x-256)/128;
+						var ypos=(256-y)/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<128;iter++){
@@ -518,6 +518,34 @@
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
 								ctx.fillStyle=colors[Math.floor(iter/16)];
+								break;
+							}
+						}
+						ctx.fillRect(x,y,2,2);
+					}
+				}
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICK
+			document.getElementById("ma_canvas").onclick=function(event){
+				mouseX=event.clientX;
+				mouseY=event.clientY;
+				
+				var canvas=document.getElementById("ma_canvas")
+				var ctx=canvas.getContext("2d");
+				for(var x=0;x<512;x+=2){
+					for(var y=0;y<512;y+=2){
+						var xpos=((x-mouseX)-256)/128;
+						var ypos=(256-(y-mouseY-100))/128;
+						var z=[0,0];
+						var c=[xpos,ypos]
+						for(var iter=0;iter<128;iter++){
+							z=complexadd(complex2(z),c);
+							if(iter==127){
+								ctx.fillStyle=colors[16];
+								break;
+							}
+							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
+								ctx.fillStyle=colors[Math.floor(iter+1/15)];
 								break;
 							}
 						}
@@ -539,12 +567,6 @@
 					i+=1;
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-MOUSE CLICK
-			document.getElementById("ma_canvas").onclick=function(event){
-				mouseX=event.clientX;
-				mouseY=event.clientY;
-				console.log([mouseX,mouseY]);
-			}
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
 			document.getElementById("sl_spin").onclick=function(){
 				if(p==2){
