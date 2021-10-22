@@ -335,10 +335,12 @@
 			var char_erarity;
 			var char_enum;
 			var turn=0;
-			var max=256;
 			var ranks=["Common","Rare","Epic","Legendary"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
+			var c_r=[255];
+			var c_g=[0];
+			var c_b=[0];
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function randint(m,n){
 				if(m>n){
@@ -365,6 +367,36 @@
 			}
 			function rgb2hex(r,g,b) {
 				return "#"+hexp(r)+hexp(g)+hexp(b);
+			}
+			for(var iter=0;iter<42;iter++){
+				c_r.push(255);
+				c_g.push(iter*6);
+				c_b.push(0);
+			}
+			for(var iter=42;iter>0;iter--){
+				c_g.push(255);
+				c_r.push(iter*6);
+				c_b.push(0);
+			}
+			for(var iter=0;iter<42;iter++){
+				c_g.push(255);
+				c_b.push(iter*6);
+				c_r.push(0);
+			}
+			for(var iter=42;iter>0;iter--){
+				c_b.push(255);
+				c_g.push(iter*6);
+				c_r.push(0);
+			}
+			for(var iter=0;iter<42;iter++){
+				c_b.push(255);
+				c_r.push(iter*6);
+				c_g.push(0);
+			}
+			for(var iter=42;iter>0;iter--){
+				c_r.push(255);
+				c_b.push(iter*6);
+				c_g.push(0);
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
@@ -522,14 +554,14 @@
 						var ypos=(256-y)/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
-						for(var iter=0;iter<128;iter++){
+						for(var iter=0;iter<252;iter++){
 							z=complexadd(complex2(z),c);
-							if(iter==127){
+							if(iter==251){
 								ctx.fillStyle="#000000";
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=rgb2hex(Math.floor(128*Math.cos(iter*(Math.PI/8))+1),Math.floor(128*Math.sin(iter*(Math.PI/8))+1),Math.floor(256-(128*Math.cos(iter*(Math.PI/8))+1)));
+								ctx.fillStyle=rgb2hex(c_r[iter],c_g[iter],c_b[iter]);
 								break;
 							}
 						}
@@ -550,14 +582,14 @@
 						var ypos=(256-(y-mouseY+428))/128;
 						var z=[0,0];
 						var c=[xpos,ypos]
-						for(var iter=0;iter<max;iter++){
+						for(var iter=0;iter<252;iter++){
 							z=complexadd(complex2(z),c);
-							if(iter==max-1){
+							if(iter==251){
 								ctx.fillStyle="#000000";
 								break;
 							}
 							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=rgb2hex(Math.floor(128*Math.cos(iter*(Math.PI/8))+1),Math.floor(128*Math.sin(iter*(Math.PI/8))+1),Math.floor(256-(128*Math.cos(iter*(Math.PI/8))+1)));
+								ctx.fillStyle=rgb2hex(c_r[iter],c_g[iter],c_b[iter]);
 								break;
 							}
 						}
