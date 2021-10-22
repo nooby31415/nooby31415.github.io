@@ -277,6 +277,8 @@
 		</div>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
+			var mouseX=0;
+			var mouseY=0;
 			var p=1;
 			var i=0;
 			var m=100;
@@ -529,13 +531,19 @@
 					i+=1;
 				}
 			};
-			//////////////////////////////////////////////////////////////////////////////////////////////GLOBAL EVENT-RICKROLL TYPER
+			//////////////////////////////////////////////////////////////////////////////////////////////RICKROLL TYPER-MOBILE CLICK
 			document.getElementById("rt_mobile").onclick=function(){
 				for(var iter=0;iter<5;iter++){
 					document.getElementById("rt_text").innerHTML+=good.charAt(i%good.length);
 					i+=1;
 				}
 			};
+			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-MOUSE CLICK
+			document.getElementById("ma_canvas").onclick=function(event){
+				mouseX=event.clientX;
+				mouseY=event.clientY;
+				console.log([mouseX,mouseY]);
+			}
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
 			document.getElementById("sl_spin").onclick=function(){
 				if(p==2){
