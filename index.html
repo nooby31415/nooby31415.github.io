@@ -341,6 +341,7 @@
 			var c_r=[255];
 			var c_g=[0];
 			var c_b=[0];
+			var click=false;
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function randint(m,n){
 				if(m>n){
@@ -570,30 +571,38 @@
 				}
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICK
-			document.getElementById("ma_canvas").onclick=function(event){
-				mouseX=event.clientX;
-				mouseY=event.clientY;
-				
-				var canvas=document.getElementById("ma_canvas")
-				var ctx=canvas.getContext("2d");
-				for(var x=0;x<512;x+=2){
-					for(var y=0;y<512;y+=2){
-						var xpos=((x-mouseX+128)-256)/128;
-						var ypos=(256-(y-mouseY+428))/128;
-						var z=[0,0];
-						var c=[xpos,ypos]
-						for(var iter=0;iter<252;iter++){
-							z=complexadd(complex2(z),c);
-							if(iter==251){
-								ctx.fillStyle="#000000";
-								break;
+			document.getElementById("ma_canvas").onmousedown=function(){
+				click=true;
+			}
+			document.getElementById("ma_canvas").onmouseup=function(){
+				click=false;
+			}
+			document.getElementById("ma_canvas").onmousemove=function(event){
+				if(click){
+					mouseX=event.clientX;
+					mouseY=event.clientY;
+
+					var canvas=document.getElementById("ma_canvas")
+					var ctx=canvas.getContext("2d");
+					for(var x=0;x<512;x+=2){
+						for(var y=0;y<512;y+=2){
+							var xpos=((x-mouseX+128)-256)/128;
+							var ypos=(256-(y-mouseY+428))/128;
+							var z=[0,0];
+							var c=[xpos,ypos]
+							for(var iter=0;iter<252;iter++){
+								z=complexadd(complex2(z),c);
+								if(iter==251){
+									ctx.fillStyle="#000000";
+									break;
+								}
+								if(Math.sqrt(z[0]**2+z[1]**2)>=2){
+									ctx.fillStyle=rgb2hex(c_r[iter],c_g[iter],c_b[iter]);
+									break;
+								}
 							}
-							if(Math.sqrt(z[0]**2+z[1]**2)>=2){
-								ctx.fillStyle=rgb2hex(c_r[iter],c_g[iter],c_b[iter]);
-								break;
-							}
+							ctx.fillRect(x,y,2,2);
 						}
-						ctx.fillRect(x,y,2,2);
 					}
 				}
 			}
