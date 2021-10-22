@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v148</p>
+		<p><br/>v150</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -418,8 +418,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x-shiftX)-256)/(128*zoom);
-						var ypos=(256-(y-shiftY))/(128*zoom);
+						var xpos=((x+shiftX)-256)/(128*zoom);
+						var ypos=(256-(y+shiftY))/(128*zoom);
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<252;iter++){
@@ -610,7 +610,7 @@
 					mouseX=event.clientX;
 					mouseY=event.clientY;
 					shiftX+=(256-mouseX)/16;
-					shiftY+=(mouseY-356)/16;
+					shiftY+=(356-mouseY)/16;
 
 					mandel();
 				}
