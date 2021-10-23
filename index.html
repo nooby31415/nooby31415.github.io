@@ -418,8 +418,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x+shiftX)-256)/(128*zoom)+shiftX*zoom;
-						var ypos=(256-(y+shiftY))/(128*zoom)+shiftY*zoom;
+						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/16);
+						var ypos=(256-(y+shiftY))/(128*zoom)+(shiftY*zoom/16);
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<252;iter++){
