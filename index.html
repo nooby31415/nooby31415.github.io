@@ -598,19 +598,19 @@
 				click=false;
 			}
 			document.getElementById("ma_zoomin").onclick=function(){
-				zoom++;
+				zoom*=2;
 				mandel();
 			}
 			document.getElementById("ma_zoomout").onclick=function(){
-				zoom--;
+				zoom/=2;
 				mandel();
 			}
 			document.getElementById("ma_canvas").onmousemove=function(event){
 				if(click){
 					mouseX=event.clientX;
 					mouseY=event.clientY;
-					shiftX+=(256-mouseX)/16;
-					shiftY+=(356-mouseY)/16;
+					shiftX+=(256-mouseX)/16*(zoom/2);
+					shiftY+=(356-mouseY)/16*(zoom/2);
 
 					mandel();
 				}
