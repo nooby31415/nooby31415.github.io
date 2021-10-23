@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v158</p>
+		<p><br/>v159</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -609,8 +609,8 @@
 				if(click){
 					mouseX=event.clientX;
 					mouseY=event.clientY;
-					shiftX+=(256-mouseX)/16*(zoom/2);
-					shiftY+=(356-mouseY)/16*(zoom/2);
+					shiftX+=(256-mouseX)/(16*(zoom/2));
+					shiftY+=(356-mouseY)/(16*(zoom/2));
 
 					mandel();
 				}
