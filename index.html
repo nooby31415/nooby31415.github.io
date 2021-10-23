@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v154</p>
+		<p><br/>v155</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -383,6 +383,9 @@
 			function rgb2hex(r,g,b) {
 				return "#"+hexp(r)+hexp(g)+hexp(b);
 			}
+			function log2(n){
+				return Math.log(n)/Math.log(2);
+			}
 			for(var iter=0;iter<42;iter++){
 				c_r.push(255);
 				c_g.push(iter*6);
@@ -418,8 +421,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/256);
-						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/256);
+						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/(256*(log2(zoom)+1)));
+						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/(256*(log2(zoom)+1)));
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<252;iter++){
