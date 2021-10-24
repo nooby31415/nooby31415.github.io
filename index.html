@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v162</p>
+		<p><br/>v163</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -383,35 +383,37 @@
 			function rgb2hex(r,g,b) {
 				return "#"+hexp(r)+hexp(g)+hexp(b);
 			}
-			for(var iter=0;iter<42;iter++){
-				c_r.push(255);
-				c_g.push(iter*6);
-				c_b.push(0);
-			}
-			for(var iter=42;iter>0;iter--){
-				c_g.push(255);
-				c_r.push(iter*6);
-				c_b.push(0);
-			}
-			for(var iter=0;iter<42;iter++){
-				c_g.push(255);
-				c_b.push(iter*6);
-				c_r.push(0);
-			}
-			for(var iter=42;iter>0;iter--){
-				c_b.push(255);
-				c_g.push(iter*6);
-				c_r.push(0);
-			}
-			for(var iter=0;iter<42;iter++){
-				c_b.push(255);
-				c_r.push(iter*6);
-				c_g.push(0);
-			}
-			for(var iter=42;iter>0;iter--){
-				c_r.push(255);
-				c_b.push(iter*6);
-				c_g.push(0);
+			for(var iter1=0;iter1<8;iter1++){
+				for(var iter2=0;iter2<5;iter2++){
+					c_r.push(255-(iter1*32));
+					c_g.push((iter2*51)-(iter1*32));
+					c_b.push(0);
+				}
+				for(var iter2=4;iter2>=0;iter2--){
+					c_g.push(255-(iter1*32));
+					c_r.push((iter2*51)-(iter1*32));
+					c_b.push(0);
+				}
+				for(var iter2=0;iter2<5;iter2++){
+					c_g.push(255-(iter1*32));
+					c_b.push((iter2*51)-(iter1*32));
+					c_r.push(0);
+				}
+				for(var iter2=4;iter2>=0;iter2--){
+					c_b.push(255-(iter1*32));
+					c_g.push((iter2*51)-(iter1*32));
+					c_r.push(0);
+				}
+				for(var iter2=0;iter2<5;iter2++){
+					c_b.push(255-(iter1*32));
+					c_r.push((iter2*51)-(iter1*32));
+					c_g.push(0);
+				}
+				for(var iter2=4;iter2>=0;iter2--){
+					c_r.push(255-(iter1*32));
+					c_b.push((iter2*51)-(iter1*32));
+					c_g.push(0);
+				}
 			}
 			function mandel(){
 				var canvas=document.getElementById("ma_canvas")
@@ -422,9 +424,9 @@
 						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/(256*zoom));
 						var z=[0,0];
 						var c=[xpos,ypos]
-						for(var iter=0;iter<252;iter++){
+						for(var iter=0;iter<256;iter++){
 							z=complexadd(complex2(z),c);
-							if(iter==251){
+							if(iter==255){
 								ctx.fillStyle="#000000";
 								break;
 							}
