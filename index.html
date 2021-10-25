@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v168</p>
+		<p><br/>v169</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -615,9 +615,9 @@
 			}
 			document.getElementById("ma_canvas").onmousewheel=function(event){
 				if(Math.sign(event.deltaY)==-1){
-					zoom*=1.03;
+					zoom*=1.2;
 				}else{
-					zoom/=1.03;
+					zoom/=1.2;
 				}
 				mandel();
 			}
