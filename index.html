@@ -288,7 +288,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v167</p>
+		<p><br/>v168</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -613,6 +613,14 @@
 				zoom/=2;
 				mandel();
 			}
+			document.getElementById("ma_canvas").onmousewheel=function(event){
+				if(Math.sign(event.deltaY)==-1){
+					zoom*=1.03;
+				}else{
+					zoom/=1.03;
+				}
+				mandel();
+			}
 			document.getElementById("ma_canvas").onmousemove=function(event){
 				if(click){
 					mouseX=event.clientX;
@@ -726,7 +734,7 @@
 					}else{
 						char_rarity=3;
 					}
-					char_num=randint(0,3);
+					char_num=randint(0,4);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
@@ -746,7 +754,7 @@
 					}else{
 						char_rarity=3;
 					}
-					char_num=randint(0,3);
+					char_num=randint(0,4);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
@@ -766,7 +774,7 @@
 					}else{
 						char_rarity=3;
 					}
-					char_num=randint(0,3);
+					char_num=randint(0,4);
 					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					document.getElementById("sl_char").style.visibility="visible";
 					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
