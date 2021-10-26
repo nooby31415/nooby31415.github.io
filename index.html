@@ -290,7 +290,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v180</p>
+		<p><br/>v182</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -552,7 +552,13 @@
 				g_hash=g_hash.toString();
 				if(parseInt(m_hash)<10){m_hash="0"+m_hash;}
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
-				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+char_rarity+char_num;
+				var inv="";
+				for(var iter1=0;iter1<3;iter1++){
+					for(var iter2=0;iter2<4;iter2++){
+						inv+=char_exists[iter1][iter2];
+					}
+				}
+				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+inv;
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-INVENTORY
 			document.getElementById("in").onclick=function(){
@@ -847,12 +853,17 @@
 				if(parseInt(g_ahash)<10){
 					g_ahash="0"+g_ahash;
 				}
-				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
+				if((m_hash==m_ahash)&&(g_hash==g_ahash)&&(code.length=38)){
 					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
-					char_rarity=parseInt(code.charAt(18));
-					char_num=parseInt(code.charAt(19));
+					for(var iter=18;iter<38;iter++){
+						if(code.charAt(iter)=="1"){
+							char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=1;
+							char_rarity=Math.floor((iter-18)/5);
+							char_num=(iter-18)%5;
+						}
+					}
 				}else{
 					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct";
 				}
