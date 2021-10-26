@@ -263,6 +263,7 @@
 			<p id="sa_text"></p>
 		</div>
 		<div id="in_div">
+			<p id="in_text">noob-Common</p>
 			<button id="0" style="width:100px; height:100px;"><img src="" id="i0" width="100" height="100"></button>
 			<button id="1" style="width:100px; height:100px;"><img src="" id="i1" width="100" height="100"></button>
 			<button id="2" style="width:100px; height:100px;"><img src="" id="i2" width="100" height="100"></button>
@@ -289,7 +290,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v175</p>
+		<p><br/>v176</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -846,14 +847,22 @@
 					g_ahash="0"+g_ahash;
 				}
 				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
-					document.getElementById("sa_text").innerHTML="Success"
+					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
 					char_rarity=parseInt(code.charAt(18));
 					char_num=parseInt(code.charAt(19));
 				}else{
-					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct"
+					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct";
 				}
+			};
+			//////////////////////////////////////////////////////////////////////////////////////////////INVENTORY-EQUIP
+			for(var iter=0;iter<15;iter++){
+				document.getElementById(iter).onclick=function(){
+					char_rarity=Math.floor(this.id/5);
+					char_num=this.id%5;
+					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+this.id;
+				};
 			};
 		</script>
 	</body>
