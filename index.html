@@ -290,7 +290,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v177</p>
+		<p><br/>v178</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -581,7 +581,7 @@
 					}
 
 				}
-				document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(char_rarity*5+char_num).toString();
+				document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(char_rarity*5+char_num+1).toString();
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-MANDELBROT
 			document.getElementById("ma").onclick=function(){
@@ -858,11 +858,11 @@
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////INVENTORY-EQUIP
-			for(var iter=0;iter<15;iter++){
+			for(var iter=0;iter<20;iter++){
 				document.getElementById(iter).onclick=function(){
 					char_rarity=Math.floor(this.id/5);
 					char_num=this.id%5;
-					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+this.id;
+					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(this.id+1).tostring();
 				};
 			};
 		</script>
