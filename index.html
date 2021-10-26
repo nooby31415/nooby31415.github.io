@@ -289,7 +289,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v185</p>
+		<p><br/>v186</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -586,7 +586,7 @@
 					}
 
 				}
-				ocument.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(char_rarity*5+char_num+1).toString()+" hp: "(char_hp[char_rarity][char_num]).toString()+" range: "+(char_min[char_rarity][char_num]).toString()+"-"+(char_max[char_rarity][char_num]).toString()+" attack: "+char_attack[char_rarity][char_num];
+				document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(char_rarity*5+char_num+1).toString()+" hp: "+(char_hp[char_rarity][char_num]).toString()+" range: "+(char_min[char_rarity][char_num]).toString()+"-"+(char_max[char_rarity][char_num]).toString()+" attack: "+char_attack[char_rarity][char_num];
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-MANDELBROT
 			document.getElementById("ma").onclick=function(){
@@ -872,7 +872,7 @@
 				document.getElementById(iter).onclick=function(){
 					char_rarity=Math.floor(this.id/5);
 					char_num=this.id%5;
-					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(parseInt(this.id)+1).toString()+" hp: "(char_hp[char_rarity][char_num]).toString()+" range: "+(char_min[char_rarity][char_num]).toString()+"-"+(char_max[char_rarity][char_num]).toString()+" attack: "+char_attack[char_rarity][char_num];
+					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(parseInt(this.id)+1).toString()+" hp: "+(char_hp[char_rarity][char_num]).toString()+" range: "+(char_min[char_rarity][char_num]).toString()+"-"+(char_max[char_rarity][char_num]).toString()+" attack: "+char_attack[char_rarity][char_num];
 				};
 			};
 		</script>
