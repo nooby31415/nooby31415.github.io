@@ -263,7 +263,7 @@
 			<p id="sa_text"></p>
 		</div>
 		<div id="in_div">
-			<p id="in_text">noob-Common</p>
+			<p id="in_text">noob-Common: #3</p>
 			<button id="0" style="width:100px; height:100px;"><img src="" id="i0" width="100" height="100"></button>
 			<button id="1" style="width:100px; height:100px;"><img src="" id="i1" width="100" height="100"></button>
 			<button id="2" style="width:100px; height:100px;"><img src="" id="i2" width="100" height="100"></button>
@@ -290,7 +290,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v176</p>
+		<p><br/>v177</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -581,6 +581,7 @@
 					}
 
 				}
+				document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(char_rarity*5+char_num).toString();
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-MANDELBROT
 			document.getElementById("ma").onclick=function(){
