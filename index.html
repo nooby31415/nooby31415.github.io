@@ -290,7 +290,7 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v182</p>
+		<p><br/>v183</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -554,7 +554,7 @@
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
 				var inv="";
 				for(var iter1=0;iter1<3;iter1++){
-					for(var iter2=0;iter2<4;iter2++){
+					for(var iter2=0;iter2<5;iter2++){
 						inv+=char_exists[iter1][iter2];
 					}
 				}
@@ -853,7 +853,7 @@
 				if(parseInt(g_ahash)<10){
 					g_ahash="0"+g_ahash;
 				}
-				if((m_hash==m_ahash)&&(g_hash==g_ahash)&&(code.length=38)){
+				if((m_hash==m_ahash)&&(g_hash==g_ahash)&&(code.length==38)){
 					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
