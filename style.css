@@ -50,7 +50,7 @@ button:hover{
 }
 #ma_canvas{
 	left:-18px;
-		top:5px;
+	top:5px;
 	position:relative;
 }
 #ma_zoomin{
@@ -111,19 +111,19 @@ button:hover{
 	top:165px;
 	left:307px;
 }
-#sl_dr1{
+#sh_dr1{
 	position:absolute;
-	top:345px;
+	top:200px;
 	left:500px;
 }
-#sl_dr2{
+#sh_dr2{
 	position:absolute;
-	top:395px;
+	top:250px;
 	left:500px;
 }
-#sl_dr3{
+#sh_dr3{
 	position:absolute;
-	top:445px;
+	top:300px;
 	left:500px;
 }
 #sl_char{
@@ -152,15 +152,15 @@ button:hover{
 	left:50px;
 }
 #sh_b6{
-	top:350px;
+	top:200px;
 	left:400px;
 }
 #sh_b7{
-	top:400px;
+	top:250px;
 	left:400px;
 }
 #sh_b8{
-	top:450px;
+	top:300px;
 	left:400px;
 }
 #ba_ptext{
