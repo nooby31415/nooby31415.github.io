@@ -5,7 +5,6 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="style.css">
 		<style>
 			body{
 				font-family:'Aldrich';
@@ -141,11 +140,6 @@
 				top:300px;
 				left:500px;
 			}
-			#sl_char{
-				position:absolute;
-				top:250px;
-				left:400px;
-			}
 			#sh_b1{
 				top:200px;
 				left:0px;
@@ -201,7 +195,6 @@
 		</style>
 	</head>
 	<body id="body">
-		<p id="sl_text"></p>
 		<div id="div">
 			<b>nooby31415</b>
 			<i>the page everyone needs</i>
@@ -225,11 +218,11 @@
 			<p>This website is created for no reason, idk this was originally intended to be a joke website for me & my friends, but if you can, pls share this website =)</p>
 		</div>
 		<div id="sl_div">
+			<p id="sl_text"></p>
 			<button id="sl_spin">Spin</button>
 			<img src="" id="sl_1" width="100" height="100">
 			<img src="" id="sl_2" width="100" height="100">
 			<img src="" id="sl_3" width="100" height="100">
-			<img src="favicon.png" id="sl_char" width="100" height="100">
 		</div>
 		<div id="ba_div">
 			<p id="ba_ptext"></p>
@@ -275,6 +268,7 @@
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
 		<div id="sh_div">
+			<p id="sh_text"></p>
 			<button id="sh_b1">$100<br/>Cost:2 gems</button>
 			<button id="sh_b2">$175<br/>Cost:3 gems</button>
 			<button id="sh_b3">2 gems<br/>Cost:$100</button>
@@ -293,8 +287,7 @@
 				Epic:(15% common)(20% rare)(55% epic)(10% legendary)
 			</p>
 		</div>
-		<p><br/>v206</p>
-		<script src="script.js"></script>
+		<p><br/>v210</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -356,6 +349,7 @@
 			var char_enum;
 			var turn=0;
 			var ranks=["Common","Rare","Epic","Legendary"];
+			var rankcolor=["#CCCCCC","#660066","#33FF33","#FFAA11"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
 			var c_r=[255];
@@ -451,6 +445,9 @@
 					}
 				}
 			}
+			for(var iter=0;iter<20;iter++){
+				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/5)];
+			}
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
@@ -502,7 +499,8 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
 				document.getElementById("sh_div").style.display="none";
-
+				
+				document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-BATTLE
@@ -632,6 +630,8 @@
 				document.getElementById("sh_div").style.display="block";
 
 				document.getElementById("hi_text").innerHTML="Buy stuffs";
+				
+				document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 			document.getElementById("ma_canvas").onmousedown=function(){
@@ -711,34 +711,34 @@
 				if(g>1){
 					g-=2;
 					m+=100;
-					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b2").onclick=function(){
 				if(g>2){
 					g-=3;
 					m+=175;
-					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b3").onclick=function(){
 				if(m>99){
 					m-=100;
 					g+=2;
-					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b4").onclick=function(){
 				if(m>174){
 					m-=175;
 					g+=3;
-					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b5").onclick=function(){
 				if(g>4){
 					g-=5;
-					for(var n=0;n<100;n++){
+					for(var iter=0;iter<100;iter++){
 						var img=document.createElement("img");
 						document.getElementById('body').appendChild(img);
 						img.src="rickastley.png";
@@ -752,7 +752,7 @@
 						img.style.opacity="0.5";
 						img.style.zIndex="-1";
 					}
-					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-CHARS
@@ -770,10 +770,9 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					document.getElementById("sl_char").style.visibility="visible";
-					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					document.getElementById("sh_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					char_exists[char_rarity][char_num]=1;
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b7").onclick=function(){
@@ -790,10 +789,9 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					document.getElementById("sl_char").style.visibility="visible";
-					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					document.getElementById("sh_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					char_exists[char_rarity][char_num]=1;
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			document.getElementById("sh_b8").onclick=function(){
@@ -810,10 +808,9 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					document.getElementById("sl_char").style.visibility="visible";
-					document.getElementById("sl_char").src=char_img[char_rarity][char_num];
+					document.getElementById("sh_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
 					char_exists[char_rarity][char_num]=1;
+					document.getElementById("sh_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
