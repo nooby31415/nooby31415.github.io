@@ -387,35 +387,35 @@ document.getElementById("sl_spin").onclick=function(){
 	}
 };
 //////////////////////////////////////////////////////////////////////////////////////////////SLOTS-BUY
-document.getElementById("sl_b1").onclick=function(){
+document.getElementById("sh_b1").onclick=function(){
 	if(g>1){
 		g-=2;
 		m+=100;
 		document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 	}
 };
-document.getElementById("sl_b2").onclick=function(){
+document.getElementById("sh_b2").onclick=function(){
 	if(g>2){
 		g-=3;
 		m+=175;
 		document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 	}
 };
-document.getElementById("sl_b3").onclick=function(){
+document.getElementById("sh_b3").onclick=function(){
 	if(m>99){
 		m-=100;
 		g+=2;
 		document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 	}
 };
-document.getElementById("sl_b4").onclick=function(){
+document.getElementById("sh_b4").onclick=function(){
 	if(m>174){
 		m-=175;
 		g+=3;
 		document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 	}
 };
-document.getElementById("sl_b5").onclick=function(){
+document.getElementById("sh_b5").onclick=function(){
 	if(g>4){
 		g-=5;
 		for(var n=0;n<100;n++){
@@ -436,7 +436,7 @@ document.getElementById("sl_b5").onclick=function(){
 	}
 };
 //////////////////////////////////////////////////////////////////////////////////////////////SLOTS-CHARS
-document.getElementById("sl_b6").onclick=function(){
+document.getElementById("sh_b6").onclick=function(){
 	if(g>11){
 		g-=12;
 		var rand=randint(0,100);
@@ -456,7 +456,7 @@ document.getElementById("sl_b6").onclick=function(){
 		char_exists[char_rarity][char_num]=1;
 	}
 };
-document.getElementById("sl_b7").onclick=function(){
+document.getElementById("sh_b7").onclick=function(){
 	if(g>24){
 		g-=25;
 		var rand=randint(0,100);
@@ -476,7 +476,7 @@ document.getElementById("sl_b7").onclick=function(){
 		char_exists[char_rarity][char_num]=1;
 	}
 };
-document.getElementById("sl_b8").onclick=function(){
+document.getElementById("sh_b8").onclick=function(){
 	if(g>49){
 		g-=50;
 		var rand=randint(0,100);
