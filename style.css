@@ -27,7 +27,7 @@ body{
 #hi_text{
 	margin:0px;
 	top:5px;
-		position:relative;
+	position:relative;
 }
 button{
 	position:absolute;
@@ -131,35 +131,35 @@ button:hover{
 	top:250px;
 	left:400px;
 }
-#sa_b1{
-	top:350px;
+#sh_b1{
+	top:200px;
 	left:0px;
 }
-#sa_b2{
-	top:350px;
+#sh_b2{
+	top:200px;
 	left:100px;
 }
-#sa_b3{
-	top:350px;
-	left:200px;
+#sh_b3{
+	top:250px;
+	left:0px;
 }
-#sa_b4{
-	top:400px;
+#sh_b4{
+	top:250px;
+	left:100px;
+}
+#sh_b5{
+	top:300px;
 	left:50px;
 }
-#sa_b5{
-	top:400px;
-	left:150px;
-}
-#sa_b6{
+#sh_b6{
 	top:350px;
 	left:400px;
 }
-#sa_b7{
+#sh_b7{
 	top:400px;
 	left:400px;
 }
-#sa_b8{
+#sh_b8{
 	top:450px;
 	left:400px;
 }
