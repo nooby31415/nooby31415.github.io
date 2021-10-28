@@ -39,6 +39,12 @@ button{
 	color:#FFFFFF;
 	border-radius:12px;
 }
+#sl_text{
+	top:0px;
+	left:0px;
+	position:absolute;
+	z-index:1;
+}
 button:hover{
 	background-color:#44AAFF;
 }
