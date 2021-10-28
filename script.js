@@ -161,6 +161,7 @@ document.getElementById("ba_div").style.display="none";
 document.getElementById("sa_div").style.display="none";
 document.getElementById("in_div").style.display="none";
 document.getElementById("ma_div").style.display="none";
+document.getElementById("sh_div").style.display="none";
 
 document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 document.getElementById("sl_char").style.visibility="hidden";
@@ -174,6 +175,7 @@ document.getElementById("rt").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="none";
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 }
@@ -187,6 +189,7 @@ document.getElementById("ab").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="none";
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 }
@@ -200,6 +203,7 @@ document.getElementById("sl").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="none";	
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
 }
@@ -213,6 +217,7 @@ document.getElementById("ba").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="none";	
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Battle to the death!";
 
@@ -236,6 +241,7 @@ document.getElementById("sa").onclick=function(){
 	document.getElementById("sa_div").style.display="block";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="none";	
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 	var m_save=m.toString();
@@ -276,6 +282,7 @@ document.getElementById("in").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="block";
 	document.getElementById("ma_div").style.display="none";	
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 
@@ -305,6 +312,7 @@ document.getElementById("ma").onclick=function(){
 	document.getElementById("sa_div").style.display="none";
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="block";	
+	document.getElementById("sh_div").style.display="none";
 
 	document.getElementById("hi_text").innerHTML="Explore the mandelbrot set by scrolling and dragging";
 
@@ -312,6 +320,20 @@ document.getElementById("ma").onclick=function(){
 	shiftY=0;
 	zoom=1;
 	mandel();
+}
+//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-SHOP
+document.getElementById("sh").onclick=function(){
+	p=7;
+	document.getElementById("rt_div").style.display="none";
+	document.getElementById("ab_div").style.display="none";
+	document.getElementById("sl_div").style.display="none";
+	document.getElementById("ba_div").style.display="none";
+	document.getElementById("sa_div").style.display="none";
+	document.getElementById("in_div").style.display="none";
+	document.getElementById("ma_div").style.display="none";
+	document.getElementById("sh_div").style.display="block";
+
+	document.getElementById("hi_text").innerHTML="Buy stuffs";
 }
 //////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 document.getElementById("ma_canvas").onmousedown=function(){
