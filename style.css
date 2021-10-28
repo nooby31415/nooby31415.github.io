@@ -91,6 +91,10 @@ button:hover{
 	left:calc(87.5% - 87.5px);
 	top:74%;
 }
+#sh{
+	left:calc(37.5% - 37.5px);
+	top:74;
+}
 #sl_1{
 	left:0%;
 	top:30px;
