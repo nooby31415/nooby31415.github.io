@@ -306,7 +306,7 @@ document.getElementById("ma").onclick=function(){
 	document.getElementById("in_div").style.display="none";
 	document.getElementById("ma_div").style.display="block";	
 
-	document.getElementById("hi_text").innerHTML="Explore the mandelbrot set";
+	document.getElementById("hi_text").innerHTML="Explore the mandelbrot set by scrolling and dragging";
 
 	shiftX=0;
 	shiftY=0;
