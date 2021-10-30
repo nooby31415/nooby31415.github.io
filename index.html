@@ -6,14 +6,21 @@
 		<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
+			/*
+			    |back1 |text2 |top3  |hint4 |bstrt5|btend6|name |
+			   1|002244|FFFFFF|3388FF|77CCFF|0055CC|44AAFF|blue |
+			   2|000000|FFFFFF|444444|333333|222222|777777|dark |
+			   3|CCCCCC|000000|FFFFFF|EEEEEE|AAAAAA|555555|light|
+			   4|338844|FFFFFF|004422|77FF55|00CC55|006622|green|
+			*/
 			body{
 				font-family:'Aldrich';
-				background-color:#002244;
-				color:#FFFFFF;
+				background-color:#002244; /* back 1 */
+				color:#FFFFFF;		  /* text 2 */
 				position:relative;
 			}
 			#div{
-				background-color:#3388FF;
+				background-color:#3388FF; /* top 3 */
 				text-align:center;
 				height:150px;
 				width:100%;
@@ -22,7 +29,7 @@
 				position:relative;
 			}
 			#hi_div{
-				background-color:#77CCFF;
+				background-color:#77CCFF; /* hint 4 */
 				text-align:center;
 				height:30px;
 				width:calc(100% - 50px);
@@ -41,14 +48,14 @@
 				position:absolute;
 				transition-duration:0.4s;
 				border:none;
-				background-color:#0055CC;
+				background-color:#0055CC; /* btnstart 5 */
 				width:100px;
 				height:40px;
 				color:#FFFFFF;
 				border-radius:12px;
 			}
 			button:hover{
-				background-color:#44AAFF;
+				background-color:#44AAFF; /* btnend 6 */
 			}
 			#ba_next{
 				top:350px;
@@ -97,6 +104,10 @@
 			}
 			#ma{
 				left:calc(87.5% - 87.5px);
+				top:74%;
+			}
+			#th{
+				left:calc(37.5% - 37.5px);
 				top:74%;
 			}
 			#sl_1{
@@ -195,6 +206,7 @@
 			<button id="sa">Save/Load</button>
 			<button id="in">Inventory</button>
 			<button id="ma">Mandelbrot</button>
+			<button id="th">Themes</button>
 		</div>
 		<div id="hi_div">
 			<p id="hi_text"></p>
@@ -274,7 +286,13 @@
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
 		</div>
-		<p><br/>v212</p>
+		<div id="th_div">
+			<button id="th_1">Blue</button>
+			<button id="th_2">Dark</button>
+			<button id="th_3">Light</button>
+			<button id="th_4">Green</button>
+		</div>
+		<p><br/>v214</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -343,6 +361,12 @@
 			var c_g=[0];
 			var c_b=[0];
 			var click=false;
+			var colors=[
+				["#002244","#FFFFFF","#3388FF","#77CCFF","#0055CC","#44AAFF"],
+				["#000000","#FFFFFF","#444444","#333333","#222222","#777777"],
+			   	["#CCCCCC","#000000","#FFFFFF","#EEEEEE","#AAAAAA","#555555"],
+			   	["#338844","#FFFFFF","#004422","#77FF55","#00CC55","#006622"]
+			];
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function randint(m,n){
 				if(m>n){
@@ -443,6 +467,7 @@
 			document.getElementById("sa_div").style.display="none";
 			document.getElementById("in_div").style.display="none";
 			document.getElementById("ma_div").style.display="none";
+			document.getElementById("th_div").style.display="none";
 
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-RICKROLL TYPER
@@ -455,6 +480,7 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";
+				document.getElementById("th_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
@@ -468,6 +494,7 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";
+				document.getElementById("th_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
@@ -481,6 +508,7 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
+				document.getElementById("th_div").style.display="none";
 				
 				document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
@@ -495,6 +523,7 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
+				document.getElementById("th_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 
@@ -518,6 +547,7 @@
 				document.getElementById("sa_div").style.display="block";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
+				document.getElementById("th_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 				var m_save=m.toString();
@@ -558,6 +588,7 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="block";
 				document.getElementById("ma_div").style.display="none";	
+				document.getElementById("th_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 
@@ -586,7 +617,8 @@
 				document.getElementById("ba_div").style.display="none";
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
-				document.getElementById("ma_div").style.display="block";	
+				document.getElementById("ma_div").style.display="block";
+				document.getElementById("th_div").style.display="none";	
 
 				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set by scrolling and dragging";
 
@@ -594,6 +626,20 @@
 				shiftY=0;
 				zoom=1;
 				mandel();
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-THEMES
+			document.getElementById("th").onclick=function(){
+				p=7;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="none";
+				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
+				document.getElementById("in_div").style.display="none";
+				document.getElementById("ma_div").style.display="none";
+				document.getElementById("th_div").style.display="block";
+
+				document.getElementById("hi_text").innerHTML="Click a theme to use it.";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 			document.getElementById("ma_canvas").onmousedown=function(){
@@ -835,7 +881,7 @@
 				if(parseInt(g_ahash)<10){
 					g_ahash="0"+g_ahash;
 				}
-				if((m_hash==m_ahash)&&(g_hash==g_ahash)&&(code.length==38)){
+				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
 					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
@@ -858,6 +904,17 @@
 					document.getElementById("in_text").innerHTML=char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+": #"+(parseInt(this.id)+1).toString()+" hp: "+(char_hp[char_rarity][char_num]).toString()+" range: "+(char_min[char_rarity][char_num]).toString()+"-"+(char_max[char_rarity][char_num]).toString()+" attack: "+char_attack[char_rarity][char_num];
 				};
 			};
+			//////////////////////////////////////////////////////////////////////////////////////////////THEMES-CLICKS
+			/*
+			document.getElementById("th_1").onclick=function(){
+				document.getElementById("body").style.backgroundColor=colors[0][0];
+				document.getElementById("body").style.color=colors[0][1];
+				document.getElementById("div").style.backgroundColor=colors[0][2];
+				document.getElementById("body").style.backgroundColor=colors[0][3];
+				document.getElementById("body").style.backgroundColor=colors[0][4];
+				document.getElementById("body").style.backgroundColor=colors[0][5];
+			}
+			*/
 		</script>
 	</body>
 </html>
