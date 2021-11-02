@@ -5,7 +5,24 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
 		<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
+		<style id="btnend">
+			button:hover{
+				background-color:#44AAFF; /* btnend 6 */
+			}
+		</style>
+		<style id="btnstart">
+			button{
+				position:absolute;
+				transition-duration:0.4s;
+				border:none;
+				background-color:#0055CC; /* btnstart 5 */
+				width:100px;
+				height:40px;
+				color:#FFFFFF;
+				border-radius:12px;
+			}
+		</style>
+		<style id="style1">
 			/*
 			    |back1 |text2 |top3  |hint4 |bstrt5|btend6|name |
 			   1|002244|FFFFFF|3388FF|77CCFF|0055CC|44AAFF|blue |
@@ -43,19 +60,6 @@
 				margin:0px;
 				top:5px;
 				position:relative;
-			}
-			button{
-				position:absolute;
-				transition-duration:0.4s;
-				border:none;
-				background-color:#0055CC; /* btnstart 5 */
-				width:100px;
-				height:40px;
-				color:#FFFFFF;
-				border-radius:12px;
-			}
-			button:hover{
-				background-color:#44AAFF; /* btnend 6 */
 			}
 			#ba_next{
 				top:350px;
@@ -288,11 +292,20 @@
 		</div>
 		<div id="th_div">
 			<button id="th_1">Blue</button>
+			<br/>
+			<br/>
+			<br/>
 			<button id="th_2">Dark</button>
+			<br/>
+			<br/>
+			<br/>
 			<button id="th_3">Light</button>
+			<br/>
+			<br/>
+			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/>v214</p>
+		<p><br/>v215</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -905,16 +918,38 @@
 				};
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////THEMES-CLICKS
-			/*
 			document.getElementById("th_1").onclick=function(){
 				document.getElementById("body").style.backgroundColor=colors[0][0];
 				document.getElementById("body").style.color=colors[0][1];
 				document.getElementById("div").style.backgroundColor=colors[0][2];
-				document.getElementById("body").style.backgroundColor=colors[0][3];
-				document.getElementById("body").style.backgroundColor=colors[0][4];
-				document.getElementById("body").style.backgroundColor=colors[0][5];
+				document.getElementById("hi_div").style.backgroundColor=colors[0][3];
+				document.getElementById("btnstart").innerText="button{position:absolute;transition-duration:0.4s;border:none;background-color:#0055CC;width:100px;height:40px;color:"+colors[0][4]";border-radius:12px;}";
+				document.getElementById("btnend").innerText="button:hover{background-color:"+colors[0][5]+";}";
 			}
-			*/
+			document.getElementById("th_2").onclick=function(){
+				document.getElementById("body").style.backgroundColor=colors[1][0];
+				document.getElementById("body").style.color=colors[1][1];
+				document.getElementById("div").style.backgroundColor=colors[1][2];
+				document.getElementById("hi_div").style.backgroundColor=colors[1][3];
+				document.getElementById("btnstart").innerText="button{position:absolute;transition-duration:0.4s;border:none;background-color:#0055CC;width:100px;height:40px;color:"+colors[1][4]";border-radius:12px;}";
+				document.getElementById("btnend").innerText="button:hover{background-color:"+colors[1][5]+";}";
+			}
+			document.getElementById("th_3").onclick=function(){
+				document.getElementById("body").style.backgroundColor=colors[2][0];
+				document.getElementById("body").style.color=colors[2][1];
+				document.getElementById("div").style.backgroundColor=colors[2][2];
+				document.getElementById("hi_div").style.backgroundColor=colors[2][3];
+				document.getElementById("btnstart").innerText="button{position:absolute;transition-duration:0.4s;border:none;background-color:#0055CC;width:100px;height:40px;color:"+colors[2][4]";border-radius:12px;}";
+				document.getElementById("btnend").innerText="button:hover{background-color:"+colors[2][5]+";}";
+			}
+			document.getElementById("th_4").onclick=function(){
+				document.getElementById("body").style.backgroundColor=colors[3][0];
+				document.getElementById("body").style.color=colors[3][1];
+				document.getElementById("div").style.backgroundColor=colors[3][2];
+				document.getElementById("hi_div").style.backgroundColor=colors[3][3];
+				document.getElementById("btnstart").innerText="button{position:absolute;transition-duration:0.4s;border:none;background-color:#0055CC;width:100px;height:40px;color:"+colors[3][4]";border-radius:12px;}";
+				document.getElementById("btnend").innerText="button:hover{background-color:"+colors[3][5]+";}";
+			}
 		</script>
 	</body>
 </html>
