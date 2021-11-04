@@ -304,7 +304,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/><br/><br/>v222</p>
+		<p><br/><br/><br/>v223</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -452,6 +452,10 @@
 					for(var y=0;y<512;y+=2){
 						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/(256*zoom));
 						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/(256*zoom));
+						if(x==256 && y==256){
+							var centerX=xpos;
+							var centerY=ypos;
+						}
 						var z=[0,0];
 						var c=[xpos,ypos]
 						for(var iter=0;iter<256;iter++){
@@ -468,8 +472,8 @@
 						ctx.fillRect(x,y,2,2);
 					}
 				}
-				document.getElementById("ma_x").innerHTML="X:"+(xpos).toString();
-				document.getElementById("ma_y").innerHTML="Y:"+(ypos).toString();
+				document.getElementById("ma_x").innerHTML="X:"+(centerX).toString();
+				document.getElementById("ma_y").innerHTML="Y:"+(centerY).toString();
 				document.getElementById("ma_z").innerHTML="Zoom:"+(zoom).toString();
 			}
 			for(var iter=0;iter<20;iter++){
