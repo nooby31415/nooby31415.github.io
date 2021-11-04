@@ -282,6 +282,9 @@
 			<canvas id="ma_canvas" width="512" height="512"></canvas>
 			<button id="ma_zoomin">Zoom in</button>
 			<button id="ma_zoomout">Zoom out</button>
+			<p id="ma_x">X:0</p>
+			<p id="ma_y">Y:0</p>
+			<p id="ma_z">Zoom:0</p>
 		</div>
 		<div id="th_div">
 			<br/>
@@ -301,7 +304,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/><br/><br/>v220</p>
+		<p><br/><br/><br/>v221</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -465,6 +468,9 @@
 						ctx.fillRect(x,y,2,2);
 					}
 				}
+				document.getElementById("ma_x").innerHTML="X:"+(shiftX).toString();
+				document.getElementById("ma_y").innerHTML="Y:"+(shiftY).toString();
+				document.getElementById("ma_z").innerHTML="Zoom:"+(zoom).toString();
 			}
 			for(var iter=0;iter<20;iter++){
 				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/5)];
@@ -791,16 +797,16 @@
 					if(char_exists[char_rarity][char_num]==1){
 						switch(char_rarity){
 							case 0:
-								g+=22;
+								g+=8;
 								break;
 							case 1:
-								g+=32;
+								g+=12;
 								break;
 							case 2:
-								g+=57;
+								g+=16;
 								break;
 							case 3:
-								g+=87;
+								g+=24;
 								break;
 						}
 						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
@@ -827,16 +833,16 @@
 					if(char_exists[char_rarity][char_num]==1){
 						switch(char_rarity){
 							case 0:
-								g+=35;
+								g+=15;
 								break;
 							case 1:
-								g+=45;
+								g+=20;
 								break;
 							case 2:
-								g+=70;
+								g+=25;
 								break;
 							case 3:
-								g+=100;
+								g+=45;
 								break;
 						}
 						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
@@ -863,16 +869,16 @@
 					if(char_exists[char_rarity][char_num]==1){
 						switch(char_rarity){
 							case 0:
-								g+=60;
+								g+=30;
 								break;
 							case 1:
-								g+=70;
+								g+=35;
 								break;
 							case 2:
-								g+=95;
+								g+=45;
 								break;
 							case 3:
-								g+=125;
+								g+=60;
 								break;
 						}
 						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
