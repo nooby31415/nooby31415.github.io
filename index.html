@@ -301,7 +301,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/>v218</p>
+		<p><br/>v219</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -788,8 +788,26 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					char_exists[char_rarity][char_num]=1;
+					if(char_exists[char_rarity][char_num]==1){
+						switch(char_rarity){
+							case 0:
+								g+=10;
+								break;
+							case 1:
+								g+=20;
+								break;
+							case 2:
+								g+=45;
+								break;
+							case 3:
+								g+=75;
+								break;
+						}
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
+					}else{
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+						char_exists[char_rarity][char_num]=1;
+					}
 				}
 			};
 			document.getElementById("sl_b7").onclick=function(){
@@ -806,8 +824,26 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					char_exists[char_rarity][char_num]=1;
+					if(char_exists[char_rarity][char_num]==1){
+						switch(char_rarity){
+							case 0:
+								g+=10;
+								break;
+							case 1:
+								g+=20;
+								break;
+							case 2:
+								g+=45;
+								break;
+							case 3:
+								g+=75;
+								break;
+						}
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
+					}else{
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+						char_exists[char_rarity][char_num]=1;
+					}
 				}
 			};
 			document.getElementById("sl_b8").onclick=function(){
@@ -824,8 +860,26 @@
 						char_rarity=3;
 					}
 					char_num=randint(0,4);
-					document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
-					char_exists[char_rarity][char_num]=1;
+					if(char_exists[char_rarity][char_num]==1){
+						switch(char_rarity){
+							case 0:
+								g+=10;
+								break;
+							case 1:
+								g+=20;
+								break;
+							case 2:
+								g+=45;
+								break;
+							case 3:
+								g+=75;
+								break;
+						}
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity]+" again";
+					}else{
+						document.getElementById("sl_text").innerHTML="You got: "+char_name[char_rarity][char_num]+"-"+ranks[char_rarity];
+						char_exists[char_rarity][char_num]=1;
+					}
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
