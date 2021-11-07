@@ -304,7 +304,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/><br/><br/>v224</p>
+		<p><br/><br/><br/>v225</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -417,8 +417,8 @@
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x+shiftX)-256)/(128*zoom)/*+(shiftX*zoom/(256*zoom))*/;
-						var ypos=(256-(y+shiftY))/(128*zoom)/*-(shiftY*zoom/(256*zoom))*/;
+						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/(128*zoom));
+						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/(128*zoom));
 						if(x==256 && y==256){
 							var centerX=xpos;
 							var centerY=ypos;
