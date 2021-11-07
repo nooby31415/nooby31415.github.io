@@ -304,7 +304,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/><br/><br/>v225</p>
+		<p><br/><br/><br/>v226</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -413,6 +413,9 @@
 				c_b.push((iter*29429)%256);
 			}
 			function mandel(){
+				if(zoom>200000000000000){
+					zoom=200000000000000;
+				}
 				var canvas=document.getElementById("ma_canvas")
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
