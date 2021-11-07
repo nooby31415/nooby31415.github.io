@@ -304,7 +304,7 @@
 			<br/>
 			<button id="th_4">Green</button>
 		</div>
-		<p><br/><br/><br/>v223</p>
+		<p><br/><br/><br/>v224</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -369,9 +369,9 @@
 			var rankcolor=["#CCCCCC","#660066","#33FF33","#FFAA11"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
-			var c_r=[255];
-			var c_g=[0];
-			var c_b=[0];
+			var c_r=[];
+			var c_g=[];
+			var c_b=[];
 			var click=false;
 			var colors=[
 			//        back     text      top       hint       btnstrt   btnend
@@ -407,51 +407,18 @@
 			function rgb2hex(r,g,b) {
 				return "#"+hexp(r)+hexp(g)+hexp(b);
 			}
-			for(var iter1=1;iter1<=8;iter1++){
-				for(var iter2=0;iter2<=5;iter2++){
-					c_r.push(255);
-					c_g.push(iter2*42);
-					c_b.push(0);
-				}
-				for(var iter2=5;iter2>=0;iter2--){
-					c_g.push(255);
-					c_r.push(iter2*42);
-					c_b.push(0);
-				}
-				for(var iter2=0;iter2<=5;iter2++){
-					c_g.push(255);
-					c_b.push(iter2*42);
-					c_r.push(0);
-				}
-				for(var iter2=5;iter2>=0;iter2--){
-					c_b.push(255);
-					c_g.push(iter2*42);
-					c_r.push(0);
-				}
-				for(var iter2=0;iter2<=5;iter2++){
-					c_b.push(255);
-					c_r.push(iter2*42);
-					c_g.push(0);
-				}
-				for(var iter2=5;iter2>=0;iter2--){
-					c_r.push(255);
-					c_b.push(iter2*42);
-					c_g.push(0);
-				}
-				c_r.push(255);
-				c_b.push(0);
-				c_g.push(0);
-				c_r.push(255);
-				c_b.push(0);
-				c_g.push(0);
+			for(var iter=0;iter<256;iter++){
+				c_r.push((iter*58171)%256);
+				c_g.push((iter*15773)%256);
+				c_b.push((iter*29429)%256);
 			}
 			function mandel(){
 				var canvas=document.getElementById("ma_canvas")
 				var ctx=canvas.getContext("2d");
 				for(var x=0;x<512;x+=2){
 					for(var y=0;y<512;y+=2){
-						var xpos=((x+shiftX)-256)/(128*zoom)+(shiftX*zoom/(256*zoom));
-						var ypos=(256-(y+shiftY))/(128*zoom)-(shiftY*zoom/(256*zoom));
+						var xpos=((x+shiftX)-256)/(128*zoom)/*+(shiftX*zoom/(256*zoom))*/;
+						var ypos=(256-(y+shiftY))/(128*zoom)/*-(shiftY*zoom/(256*zoom))*/;
 						if(x==256 && y==256){
 							var centerX=xpos;
 							var centerY=ypos;
