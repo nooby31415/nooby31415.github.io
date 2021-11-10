@@ -336,7 +336,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v238</p>
+		<p><br/><br/><br/>v239</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -495,6 +495,7 @@
 			for(var iter=0;iter<40;iter++){
 				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/10)];
 			}
+			swaptheme(0);
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT ELEMENTS
 			document.getElementById("rt_div").style.display="none";
 			document.getElementById("ab_div").style.display="block";
@@ -972,18 +973,33 @@
 					g_ahash="0"+g_ahash;
 				}
 				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
-					document.getElementById("sa_text").innerHTML="Success";
-					m=parseInt(m_save);
-					g=parseInt(g_save);
-					for(var iter=18;iter<58;iter++){
-						if(code.charAt(iter)=="1"){
-							char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
-							char_rarity=Math.floor((iter-18)/10);
-							char_num=(iter-18)%10;
+					if(code.length>38){
+						document.getElementById("sa_text").innerHTML="Success";
+						m=parseInt(m_save);
+						g=parseInt(g_save);
+						for(var iter=18;iter<58;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+					}else{
+						document.getElementById("sa_text").innerHTML="Old save code detected. Success";
+						for(var iter=18;iter<38;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=1;
+								char_rarity=Math.floor((iter-18)/5);
+								char_num=(iter-18)%5;
+							}else{
+								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=0;
+							}
 						}
 					}
 				}else{
-					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct, or save feature may be temporarily down.<br/>NOTE:Save codes that are older than this message may not work anymore.";
+					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct, or save feature may be temporarily down.";
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////INVENTORY-EQUIP
