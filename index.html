@@ -323,8 +323,20 @@
 			<br/>
 			<br/>
 			<button id="th_4">Green</button>
+			<br/>
+			<br/>
+			<br/>
+			<button id="th_5">Yellow</button>
+			<br/>
+			<br/>
+			<br/>
+			<button id="th_6">Red</button>
+			<br/>
+			<br/>
+			<br/>
+			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v237</p>
+		<p><br/><br/><br/>v238</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			var mouseX=0;
@@ -395,10 +407,13 @@
 			var click=false;
 			var colors=[
 			//        back     text      top       hint       btnstrt   btnend
-				["#002244","#FFFFFF","#3388FF","#77CCFF","#0055CC","#44AAFF"],
-				["#000000","#FFFFFF","#444444","#333333","#222222","#777777"],
-			   	["#CCCCCC","#000000","#FFFFFF","#EEEEEE","#AAAAAA","#555555"],
-			   	["#004422","#FFFFFF","#338844","#449922","#008833","#006622"]
+				["#002244","#FFFFFF","#3388FF","#77CCFF","#0055CC","#44AAFF"], //blue
+				["#000000","#FFFFFF","#444444","#333333","#222222","#777777"], //dark
+			   	["#CCCCCC","#000000","#FFFFFF","#EEEEEE","#AAAAAA","#555555"], //light
+			   	["#004422","#FFFFFF","#338844","#449922","#008833","#006622"], //green
+				["#AAAA22","#FFFFFF","#CCCC00","#DDBB00","#AA8800","#AAAA00"], //yellow
+				["#660000","#FFFFFF","#DD0000","#FF7777","#990000","#660000"], //red
+				["#220044","#FFFFFF","#550099","#9911AA","#9900CC","#550088"]  //purple
 			];
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function swaptheme(t){	
@@ -991,6 +1006,15 @@
 			}
 			document.getElementById("th_4").onclick=function(){
 				swaptheme(3);
+			}
+			document.getElementById("th_5").onclick=function(){
+				swaptheme(4);
+			}
+			document.getElementById("th_6").onclick=function(){
+				swaptheme(5);
+			}
+			document.getElementById("th_7").onclick=function(){
+				swaptheme(6);
 			}
 		</script>
 	</body>
