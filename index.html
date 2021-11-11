@@ -359,7 +359,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v241</p>
+		<p><br/><br/><br/>v242</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -523,7 +523,7 @@
 				document.getElementById("ma_y").innerHTML="Y:"+(centerY).toString();
 				document.getElementById("ma_z").innerHTML="Zoom:"+(zoom).toString();
 			}
-			for(var iter=0;iter<40;iter++){
+			for(var iter=0;iter<50;iter++){
 				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/10)];
 			}
 			swaptheme(0);
@@ -660,7 +660,7 @@
 
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 
-				for(var iter1=0;iter1<4;iter1++){
+				for(var iter1=0;iter1<5;iter1++){
 					for(var iter2=0;iter2<10;iter2++){
 						if(char_exists[iter1][iter2]==0){
 							document.getElementById((iter1*10+iter2).toString()).style.visibility="hidden";
