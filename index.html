@@ -3,7 +3,6 @@
 	<head>
 		<title>nooby31415's page</title>
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
-		<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style id="btnend">
 			button:hover{
@@ -12,6 +11,7 @@
 		</style>
 		<style id="btnstart">
 			button{
+				font-family:monospace;
 				position:absolute;
 				transition-duration:0.4s;
 				border:none;
@@ -24,7 +24,7 @@
 		</style>
 		<style id="style1">
 			body{
-				font-family:'Aldrich';
+				font-family:monospace;
 				background-color:#002244; /* back 1 */
 				color:#FFFFFF;		  /* text 2 */
 				position:relative;
@@ -382,7 +382,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v263</p>
+		<p><br/><br/><br/>v264</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -482,7 +482,7 @@
 				document.getElementById("body").style.color=colors[t][1];
 				document.getElementById("div").style.backgroundColor=colors[t][2];
 				document.getElementById("hi_div").style.backgroundColor=colors[t][3];
-				document.getElementById("btnstart").innerText="button{position:absolute;transition-duration:0.4s;border:none;background-color:"+colors[t][4]+";width:100px;height:40px;color:"+colors[3][1]+";border-radius:12px;}";
+				document.getElementById("btnstart").innerText="button{font-family:monospace;position:absolute;transition-duration:0.4s;border:none;background-color:"+colors[t][4]+";width:100px;height:40px;color:"+colors[3][1]+";border-radius:12px;}";
 				document.getElementById("btnend").innerText="button:hover{background-color:"+colors[t][5]+";}";
 			}
 			function randint(m,n){
