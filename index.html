@@ -382,7 +382,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v260</p>
+		<p><br/><br/><br/>v261</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -1186,6 +1186,34 @@
 								char_num=(iter-18)%10;
 							}else{
 								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
+							}
+						}
+					}else if(code.length==58){
+						for(var iter=18;iter<28;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+						for(var iter=28;iter<48;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10)+1;
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
+							}
+						}
+						for(var iter=48;iter<58;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10)+2;
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=0;
 							}
 						}
 					}else if(code.length<=38){
