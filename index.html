@@ -382,7 +382,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v262</p>
+		<p><br/><br/><br/>v263</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -1163,6 +1163,14 @@
 					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
+					char_exists=[
+						[0,0,0,1,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0]
+					];
 					if(code.length>=78){
 						for(var iter=18;iter<78;iter++){
 							if(code.charAt(iter)=="1"){
