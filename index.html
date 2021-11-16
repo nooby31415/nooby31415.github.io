@@ -382,7 +382,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v258</p>
+		<p><br/><br/><br/>v259</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -1159,7 +1159,7 @@
 					document.getElementById("sa_text").innerHTML="Success";
 					m=parseInt(m_save);
 					g=parseInt(g_save);
-					if(save.length>=78){
+					if(code.length>=78){
 						for(var iter=18;iter<78;iter++){
 							if(code.charAt(iter)=="1"){
 								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
@@ -1169,7 +1169,7 @@
 								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
 							}
 						}
-					}else if(save.length==68){
+					}else if(code.length==68){
 						for(var iter=18;iter<58;iter++){
 							if(code.charAt(iter)=="1"){
 								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
@@ -1188,7 +1188,7 @@
 								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
 							}
 						}
-					}else if(save.length<=38){
+					}else if(code.length<=38){
 						for(var iter=18;iter<23;iter++){
 							if(code.charAt(iter)=="1"){
 								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=1;
