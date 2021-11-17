@@ -23,6 +23,36 @@
 			}
 		</style>
 		<style id="style1">
+			#ti_div{
+				position: fixed;
+				background-color: #3388ffcc;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				border-radius: 12px;
+			}
+			#ti_text{
+				font-size: 4em;
+				text-align:center;
+			}
+			#ti_img{
+				top: 0px;
+  				position: absolute;
+			}
+			#ti_img2{
+				left: calc(100% - 100px);
+    				top: 0px;
+    				position: absolute;
+			}
+			#ti_new{
+				left:200px;
+				top:500px;
+			}
+			#ti_cont{
+				left:calc(100% - 300px);
+				top:500px;
+			}
 			body{
 				font-family:monospace;
 				background-color:#002244; /* back 1 */
@@ -211,6 +241,13 @@
 		</style>
 	</head>
 	<body id="body">
+		<div id="ti_div">
+  			<h1 id="ti_text">nooby31415</h1>
+ 			<img src="favicon.png" width="100" height="100" id="ti_img">
+			<img src="favicon.png" width="100" height="100" id="ti_img2">
+			<button id="ti_new">New Game</button>
+			<button id="ti_cont">Continue</button>
+		</div>
 		<div id="div">
 			<b>nooby31415</b>
 			<i>the page everyone needs</i>
@@ -382,7 +419,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v265</p>
+		<p><br/><br/><br/>v266</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -582,6 +619,136 @@
 				}
 				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+inv;
 			}
+			function load(code){
+				var m_save="";
+				var g_save="";
+				for(var iter=0;iter<7;iter++){
+					m_save+=code.charAt(iter);
+				}
+				for(var iter=7;iter<14;iter++){
+					g_save+=code.charAt(iter);
+				}
+				var m_hash=code.charAt(14)+code.charAt(15);
+				var g_hash=code.charAt(16)+code.charAt(17);
+				var m_ahash=0;
+				var g_ahash=0;
+				for(var iter=0;iter<7;iter++){
+					m_ahash+=parseInt(m_save.charAt(iter));
+					g_ahash+=parseInt(g_save.charAt(iter));
+				}
+				m_ahash=m_ahash.toString();
+				g_ahash=g_ahash.toString();
+				if(parseInt(m_ahash)<10){
+					m_ahash="0"+m_ahash;
+				}
+				if(parseInt(g_ahash)<10){
+					g_ahash="0"+g_ahash;
+				}
+				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
+					document.getElementById("sa_text").innerHTML="Success";
+					m=parseInt(m_save);
+					g=parseInt(g_save);
+					char_exists=[
+						[0,0,0,1,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0]
+					];
+					if(code.length>=78){
+						for(var iter=18;iter<78;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+					}else if(code.length==68){
+						for(var iter=18;iter<58;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+						for(var iter=58;iter<68;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10)+1;
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
+							}
+						}
+					}else if(code.length==58){
+						for(var iter=18;iter<28;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+						for(var iter=28;iter<48;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10)+1;
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
+							}
+						}
+						for(var iter=48;iter<58;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10)+2;
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=0;
+							}
+						}
+					}else if(code.length<=38){
+						for(var iter=18;iter<23;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=1;
+								char_rarity=Math.floor((iter-18)/5);
+								char_num=(iter-18)%5;
+							}else{
+								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=0;
+							}
+						}
+						for(var iter=23;iter<33;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/5)+1][(iter-18)%5]=1;
+								char_rarity=Math.floor((iter-18)/5)+1;
+								char_num=(iter-18)%5;
+							}else{
+								char_exists[Math.floor((iter-18)/5)+1][(iter-18)%5]=0;
+							}
+						}
+						for(var iter=33;iter<38;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/5)+2][(iter-18)%5]=1;
+								char_rarity=Math.floor((iter-18)/5)+2;
+								char_num=(iter-18)%5;
+							}else{
+								char_exists[Math.floor((iter-18)/5)+2][(iter-18)%5]=0;
+							}
+						}
+					}
+					if(code.length<=68){
+						document.getElementById("sa_text").innerHTML="Success, old save code detected. For future use, please use the save code above, as it is 78 digits long and is the most compatible.";
+					}
+				}else{
+					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct, or save feature may be temporarily down.";
+				}
+			}
 			for(var iter=0;iter<60;iter++){
 				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/10)];
 			}
@@ -597,6 +764,15 @@
 			document.getElementById("th_div").style.display="none";
 
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-TITLE
+			document.getElementById("ti_new").onclick=function(){
+				localStorage.setItem("savecode","000010000000000100000100000000000000000000000000000000000000000000000000000000");
+				document.getElementById("ti_div").style.display="none";
+			};
+			document.getElementById("ti_cont").onclick=function(){
+				load(localStorage.getItem("savecode"));
+				document.getElementById("ti_div").style.display="none";
+			}
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-RICKROLL TYPER
 			document.getElementById("rt").onclick=function(){
 				p=0;
@@ -1134,135 +1310,7 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SAVE/LOAD-LOAD
 			document.getElementById("sa_loadb").onclick=function(){
-				var m_save="";
-				var g_save="";
-				var code=document.getElementById("sa_loadt").value;
-				for(var iter=0;iter<7;iter++){
-					m_save+=code.charAt(iter);
-				}
-				for(var iter=7;iter<14;iter++){
-					g_save+=code.charAt(iter);
-				}
-				var m_hash=code.charAt(14)+code.charAt(15);
-				var g_hash=code.charAt(16)+code.charAt(17);
-				var m_ahash=0;
-				var g_ahash=0;
-				for(var iter=0;iter<7;iter++){
-					m_ahash+=parseInt(m_save.charAt(iter));
-					g_ahash+=parseInt(g_save.charAt(iter));
-				}
-				m_ahash=m_ahash.toString();
-				g_ahash=g_ahash.toString();
-				if(parseInt(m_ahash)<10){
-					m_ahash="0"+m_ahash;
-				}
-				if(parseInt(g_ahash)<10){
-					g_ahash="0"+g_ahash;
-				}
-				if((m_hash==m_ahash)&&(g_hash==g_ahash)){
-					document.getElementById("sa_text").innerHTML="Success";
-					m=parseInt(m_save);
-					g=parseInt(g_save);
-					char_exists=[
-						[0,0,0,1,0,0,0,0,0,0],
-						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,0,0,0,0,0,0,0]
-					];
-					if(code.length>=78){
-						for(var iter=18;iter<78;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10);
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
-							}
-						}
-					}else if(code.length==68){
-						for(var iter=18;iter<58;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10);
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
-							}
-						}
-						for(var iter=58;iter<68;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10)+1;
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
-							}
-						}
-					}else if(code.length==58){
-						for(var iter=18;iter<28;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10);
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
-							}
-						}
-						for(var iter=28;iter<48;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10)+1;
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)+1][(iter-18)%10]=0;
-							}
-						}
-						for(var iter=48;iter<58;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10)+2;
-								char_num=(iter-18)%10;
-							}else{
-								char_exists[Math.floor((iter-18)/10)+2][(iter-18)%10]=0;
-							}
-						}
-					}else if(code.length<=38){
-						for(var iter=18;iter<23;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=1;
-								char_rarity=Math.floor((iter-18)/5);
-								char_num=(iter-18)%5;
-							}else{
-								char_exists[Math.floor((iter-18)/5)][(iter-18)%5]=0;
-							}
-						}
-						for(var iter=23;iter<33;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/5)+1][(iter-18)%5]=1;
-								char_rarity=Math.floor((iter-18)/5)+1;
-								char_num=(iter-18)%5;
-							}else{
-								char_exists[Math.floor((iter-18)/5)+1][(iter-18)%5]=0;
-							}
-						}
-						for(var iter=33;iter<38;iter++){
-							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/5)+2][(iter-18)%5]=1;
-								char_rarity=Math.floor((iter-18)/5)+2;
-								char_num=(iter-18)%5;
-							}else{
-								char_exists[Math.floor((iter-18)/5)+2][(iter-18)%5]=0;
-							}
-						}
-					}
-					if(code.length<=68){
-						document.getElementById("sa_text").innerHTML="Success, old save code detected. For future use, please use the save code above, as it is 78 digits long and is the most compatible.";
-					}
-				}else{
-					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct, or save feature may be temporarily down.";
-				}
+				load(document.getElementById("sa_loadt").value);
 				save();
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////INVENTORY-EQUIP
