@@ -425,7 +425,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v267</p>
+		<p><br/><br/><br/>v268</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -975,6 +975,7 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
 			document.getElementById("sl_spin").onclick=function(){
+				save();
 				if(p==2){
 					m-=30;
 					var img1=img[randint(0,4)];
@@ -1005,6 +1006,7 @@
 					g-=2;
 					m+=100;
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					save();
 				}
 			};
 			document.getElementById("sl_b2").onclick=function(){
@@ -1012,6 +1014,7 @@
 					g-=3;
 					m+=175;
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					save();
 				}
 			};
 			document.getElementById("sl_b3").onclick=function(){
@@ -1019,6 +1022,7 @@
 					m-=100;
 					g+=2;
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					save();
 				}
 			};
 			document.getElementById("sl_b4").onclick=function(){
@@ -1026,6 +1030,7 @@
 					m-=175;
 					g+=3;
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					save();
 				}
 			};
 			document.getElementById("sl_b5").onclick=function(){
@@ -1046,11 +1051,13 @@
 						img.style.zIndex="-1";
 					}
 					document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
+					save();
 				}
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-CHARS
 			document.getElementById("sl_b6").onclick=function(){
 				if(g>11){
+					save();
 					g-=12;
 					var rand=randint(0,100);
 					if(rand<55){
@@ -1097,6 +1104,7 @@
 			};
 			document.getElementById("sl_b7").onclick=function(){
 				if(g>17){
+					save();
 					g-=18;
 					var rand=randint(0,100);
 					if(rand<16){
@@ -1143,6 +1151,7 @@
 			};
 			document.getElementById("sl_b8").onclick=function(){
 				if(g>24){
+					save();
 					g-=25;
 					var rand=randint(0,100);
 					if(rand<13){
@@ -1189,6 +1198,7 @@
 			};
 			document.getElementById("sl_b9").onclick=function(){
 				if(g>39){
+					save();
 					g-=40;
 					var rand=randint(0,100);
 					if(rand<12){
@@ -1235,6 +1245,7 @@
 			};
 			document.getElementById("sl_b10").onclick=function(){
 				if(g>54){
+					save();
 					g-=55;
 					var rand=randint(0,100);
 					if(rand<10){
@@ -1281,6 +1292,7 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////BATTLE-NEXT
 			document.getElementById("ba_next").onclick=function(){
+				save();
 				if(turn==0){
 					char_ehp-=randint(char_min[char_rarity][char_num],char_max[char_rarity][char_num])
 					document.getElementById("ba_ptext").innerHTML=char_name[char_rarity][char_num]+"-"+char_php+"HP used "+char_attack[char_rarity][char_num];
