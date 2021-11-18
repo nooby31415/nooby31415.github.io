@@ -425,8 +425,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v266</p>
-		<button id="save">SAVE</button>
+		<p><br/><br/><br/>v267</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -625,6 +624,7 @@
 					}
 				}
 				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+inv;
+				localStorage.setItem("savecode",document.getElementById("sa_code").innerHTML);
 			}
 			function load(code){
 				var m_save="";
