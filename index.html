@@ -162,68 +162,68 @@
 			}
 			#sl_dr1{
 				position:absolute;
-				top:485px;
-				left:500px;
+				top:440px;
+				left:100px;
 			}
 			#sl_dr2{
 				position:absolute;
-				top:535px;
-				left:500px;
+				top:490px;
+				left:100px;
 			}
 			#sl_dr3{
 				position:absolute;
-				top:585px;
-				left:500px;
+				top:540px;
+				left:100px;
 			}
 			#sl_dr4{
 				position:absolute;
-				top:635px;
-				left:500px;
+				top:590px;
+				left:100px;
 			}
 			#sl_dr5{
 				position:absolute;
-				top:685px;
-				left:500px;
+				top:640px;
+				left:100px;
 			}
 			#sl_b1{
-				top:500px;
+				top:300px;
 				left:0px;
 			}
 			#sl_b2{
-				top:500px;
+				top:300px;
 				left:100px;
 			}
 			#sl_b3{
-				top:550px;
+				top:350px;
 				left:0px;
 			}
 			#sl_b4{
-				top:550px;
+				top:350px;
 				left:100px;
 			}
 			#sl_b5{
-				top:600px;
+				top:400px;
 				left:50px;
 			}
 			#sl_b6{
-				top:500px;
-				left:400px;
+				top:450px;
+				left:0px;
 			}
 			#sl_b7{
-				top:550px;
-				left:400px;
+				top:500px;
+				left:0px;
 			}
 			#sl_b8{
-				top:600px;
-				left:400px;
+				top:550px;
+				left:0px;
 			}
 			#sl_b9{
-				top:650px;
-				left:400px;
+				top:600px;
+				left:0px;
 			}
 			#sl_b10{
-				top:700px;
-				left:400px;
+				top:650px;
+				left:0px;
 			}
 			#ba_ptext{
 				position:absolute;
@@ -426,7 +426,7 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v270</p>
+		<p><br/><br/><br/>v271</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -976,7 +976,6 @@
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-SPIN
 			document.getElementById("sl_spin").onclick=function(){
-				save();
 				if(p==2){
 					m-=30;
 					var img1=img[randint(0,4)];
@@ -1000,6 +999,7 @@
 						g=0;
 					}
 				}
+				save();
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////SLOTS-BUY
 			document.getElementById("sl_b1").onclick=function(){
