@@ -512,7 +512,7 @@
 			<p id="mi_mtext">Mines: 50</p>
 			<canvas id="mi_canvas" width="512" height="512">
 		</div>
-		<p><br/><br/><br/>v276</p>
+		<p><br/><br/><br/>v277</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -1475,17 +1475,17 @@
 				swaptheme(6);
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MINESWEEPER-SLIDERS
-			document.getElementById("mi_height").oninput=function(){
-				document.getElementById("mi_htext").innerHTML=document.getElementById("mi_height").value;
-				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)-20;
-				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)+20;
-				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2);
+			document.getElementById("mi_length").oninput=function(){
+				document.getElementById("mi_htext").innerHTML=document.getElementById("mi_length").value;
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)+20;
+				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2);
 			}
 			document.getElementById("mi_width").oninput=function(){
 				document.getElementById("mi_wtext").innerHTML=document.getElementById("mi_width").value;
-				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)-20;
-				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)+20;
-				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2);
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)+20;
+				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2);
 			}
 			document.getElementById("mi_mines").oninput=function(){
 				document.getElementById("mi_mtext").innerHTML=document.getElementById("mi_mines").value;
