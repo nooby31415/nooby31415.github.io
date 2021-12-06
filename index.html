@@ -144,6 +144,10 @@
 				left:calc(37.5% - 37.5px);
 				top:74%;
 			}
+			#mi{
+				left:calc(62.5% - 62.5px);
+				top:74%;
+			}
 			#sl_1{
 				left:0%;
 				top:30px;
@@ -266,6 +270,7 @@
 			<button id="in">Inventory</button>
 			<button id="ma">Mandelbrot</button>
 			<button id="th">Themes</button>
+			<button id="mi">Minesweeper</button>
 		</div>
 		<div id="hi_div">
 			<p id="hi_text"></p>
@@ -498,7 +503,16 @@
 			<br/>
 			<button id="th_7">Purple</button>
 		</div>
-		<p><br/><br/><br/>v275</p>
+		<div id="mi_div">
+			<input type="range" min="5" max="20" value="10" id="mi_length">
+			<p id="mi_ltext">Length: 10</p>
+			<input type="range" min="5" max="20" value="10" id="mi_width">
+			<p id="mi_wtext">Width: 10</p>
+			<input type="range" min="30" max="70" value="50" id="mi_mines">
+			<p id="mi_mtext">Mines: 50</p>
+			<canvas id="mi_canvas" width="512" height="512">
+		</div>
+		<p><br/><br/><br/>v276</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -842,6 +856,7 @@
 			document.getElementById("in_div").style.display="none";
 			document.getElementById("ma_div").style.display="none";
 			document.getElementById("th_div").style.display="none";
+			document.getElementById("mi_div").style.display="none";
 
 			document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-TITLE
@@ -864,6 +879,7 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Type or tap the screen!";
 			}
@@ -878,6 +894,7 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Click or tap on a button!";
 			}
@@ -892,6 +909,7 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 				
 				document.getElementById("sl_text").innerHTML="$"+m.toString()+" Gems:"+g.toString();
 				document.getElementById("hi_text").innerHTML="Press spin and earn (or lose) money!";
@@ -907,6 +925,7 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Battle to the death!";
 
@@ -931,6 +950,7 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";	
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Copy the code and save it, or paste a code to load data";
 				
@@ -947,6 +967,7 @@
 				document.getElementById("in_div").style.display="block";
 				document.getElementById("ma_div").style.display="none";	
 				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 
@@ -976,7 +997,8 @@
 				document.getElementById("sa_div").style.display="none";
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="block";
-				document.getElementById("th_div").style.display="none";	
+				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Explore the mandelbrot set by scrolling and dragging";
 
@@ -996,8 +1018,24 @@
 				document.getElementById("in_div").style.display="none";
 				document.getElementById("ma_div").style.display="none";
 				document.getElementById("th_div").style.display="block";
+				document.getElementById("mi_div").style.display="none";
 
 				document.getElementById("hi_text").innerHTML="Click a theme to use it.";
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////BUTTONS-MINESWEEPER
+			document.getElementById("mi").onclick=function(){
+				p=8;
+				document.getElementById("rt_div").style.display="none";
+				document.getElementById("ab_div").style.display="none";
+				document.getElementById("sl_div").style.display="none";
+				document.getElementById("ba_div").style.display="none";
+				document.getElementById("sa_div").style.display="none";
+				document.getElementById("in_div").style.display="none";
+				document.getElementById("ma_div").style.display="none";
+				document.getElementById("th_div").style.display="none";
+				document.getElementById("mi_div").style.display="block";
+
+				document.getElementById("hi_text").innerHTML="Play the classic game Minesweeper! (Rules are in about)";
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 			document.getElementById("ma_canvas").onmousedown=function(){
@@ -1435,6 +1473,22 @@
 			}
 			document.getElementById("th_7").onclick=function(){
 				swaptheme(6);
+			}
+			//////////////////////////////////////////////////////////////////////////////////////////////MINESWEEPER-SLIDERS
+			document.getElementById("mi_height").oninput=function(){
+				document.getElementById("mi_htext").innerHTML=document.getElementById("mi_height").value;
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)+20;
+				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2);
+			}
+			document.getElementById("mi_width").oninput=function(){
+				document.getElementById("mi_wtext").innerHTML=document.getElementById("mi_width").value;
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2)+20;
+				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_height").value*document.getElementById("mi_width").value)/2);
+			}
+			document.getElementById("mi_mines").oninput=function(){
+				document.getElementById("mi_mtext").innerHTML=document.getElementById("mi_mines").value;
 			}
 		</script>
 	</body>
