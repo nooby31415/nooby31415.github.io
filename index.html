@@ -504,15 +504,15 @@
 			<button id="th_7">Purple</button>
 		</div>
 		<div id="mi_div">
-			<input type="range" min="5" max="20" value="10" id="mi_length">
-			<p id="mi_ltext">Length: 10</p>
 			<input type="range" min="5" max="20" value="10" id="mi_width">
-			<p id="mi_wtext">Width: 10</p>
-			<input type="range" min="30" max="70" value="50" id="mi_mines">
-			<p id="mi_mtext">Mines: 50</p>
-			<canvas id="mi_canvas" width="512" height="512">
+			<span>Width: </span><span id="mi_wtext">10</span>
+			<input type="range" min="5" max="20" value="10" id="mi_length">
+			<span>Length: </span><span id="mi_ltext">10</span>
+			<input type="range" min="40" max="70" value="50" id="mi_mines">
+			<span>Mines: </span><span id="mi_mtext">50</span>
+			<canvas id="mi_canvas" width="200" height="200">
 		</div>
-		<p><br/><br/><br/>v278</p>
+		<p><br/><br/><br/>v279</p>
 		<script>
 			//////////////////////////////////////////////////////////////////////////////////////////////INIT VARS
 			
@@ -605,6 +605,28 @@
 				["#AAAA22","#FFFFFF","#CCCC00","#DDBB00","#AA8800","#AAAA00"], //yellow
 				["#660000","#FFFFFF","#DD0000","#FF7777","#990000","#660000"], //red
 				["#220044","#FFFFFF","#550099","#9911AA","#9900CC","#550088"]  //purple
+			];
+			var minesweeper=[
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 			];
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
 			function swaptheme(t){	
@@ -843,6 +865,59 @@
 					document.getElementById("sa_text").innerHTML="Invalid save code. Make sure all numbers are correct, or save feature may be temporarily down.";
 				}
 			}
+			function newgame(){
+				minesweeper=[
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+				];
+				for(var iter=0;iter<document.getElementById("mi_mines").value;iter++){
+					var posx=randint(0,document.getElementById("mi_width").value);
+					var posy=randint(0,document.getElementById("mi_length").value);
+					
+					if(minesweeper[posy][posx]==0){
+						minesweeper[posy][posx]=9;
+					}else{
+						while(minesweeper[posy][posx]==9){
+							posx=randint(0,document.getElementById("mi_width").value);
+							posy=randint(0,document.getElementById("mi_length").value);
+							minesweeper[posy][posx]=9;
+						}
+					}
+				}
+				for(var iterx=0;iterx<document.getElementById("mi_width").value;iterx++){
+					for(var itery=0;itery<document.getElementById("mi_length").value;itery++){
+						if(minesweeper[itery][iterx]==0){
+							var count=0;
+							for(var iterx2=-1;iterx2<=1;iterx2++){
+								for(var itery2=-1;itery2<=1;itery2++){
+									if(minesweeper[itery+itery2][iterx+iterx2]==9){
+										count++;
+									}
+								}
+							}
+							minesweeper[itery][iterx]=count;		
+						}
+					}
+				}
+			}
 			for(var iter=0;iter<60;iter++){
 				document.getElementById(iter).style.backgroundColor=rankcolor[Math.floor(iter/10)];
 			}
@@ -1036,6 +1111,8 @@
 				document.getElementById("mi_div").style.display="block";
 
 				document.getElementById("hi_text").innerHTML="Play the classic game Minesweeper! (Rules are in about)";
+				
+				
 			}
 			//////////////////////////////////////////////////////////////////////////////////////////////MANDELBROT-CLICKS
 			document.getElementById("ma_canvas").onmousedown=function(){
@@ -1477,19 +1554,20 @@
 			//////////////////////////////////////////////////////////////////////////////////////////////MINESWEEPER-SLIDERS
 			document.getElementById("mi_length").oninput=function(){
 				document.getElementById("mi_ltext").innerHTML=document.getElementById("mi_length").value;
-				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-10;
 				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)+20;
 				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2);
 			}
 			document.getElementById("mi_width").oninput=function(){
 				document.getElementById("mi_wtext").innerHTML=document.getElementById("mi_width").value;
-				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-20;
+				document.getElementById("mi_mines").min=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)-10;
 				document.getElementById("mi_mines").max=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2)+20;
 				document.getElementById("mi_mtext").innerHTML=Math.floor((document.getElementById("mi_length").value*document.getElementById("mi_width").value)/2);
 			}
 			document.getElementById("mi_mines").oninput=function(){
 				document.getElementById("mi_mtext").innerHTML=document.getElementById("mi_mines").value;
 			}
+			//////////////////////////////////////////////////////////////////////////////////////////////
 		</script>
 	</body>
 </html>
