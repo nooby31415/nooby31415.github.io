@@ -583,13 +583,14 @@
 			var char_enum;
 			var turn=0;
 			var ranks=["Common","Uncommon","Rare","Epic","Super rare","Legendary","Amber","Sapphire","Ruby","Emerald","Amethyst","Bronze","Silver","Gold","Diamond","Platinum","Mythical","bob"];
-			var rankcolor=["#999999","#33CC33","#3333FF","#993399","#CC0000","#CCAA00"];
+			var rankcolor=["#999","#3c3","#33f","#939","#c00","#fd3","#99f","#e51","#e44","#7f7","#e8f","#862","#bbb","#992","#bbf","#405","#foa","#000"];
 			var img=["num7.png","gold.png","rickastley.png","google.png","cherry.png"];
 			var good="We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you ";
 			var c_r=[];
 			var c_g=[];
 			var c_b=[];
 			var click=false;
+			var CHAR_ROWS=18;
 			var colors=[
 			//        back     text      top       hint       btnstrt   btnend
 				["#002244","#FFFFFF","#3388FF","#77CCFF","#0055CC","#44AAFF"], //blue
@@ -601,6 +602,11 @@
 				["#220044","#FFFFFF","#550099","#9911AA","#9900CC","#550088"]  //purple
 			];
 			//////////////////////////////////////////////////////////////////////////////////////////////FUNCTIONS
+			/*for(var iter=0;iter<CHAR_ROWS*10;iter++){
+				var clone=document.getElementById("0").cloneNode(true);
+				document.getElementById("in_div").appendChild(clone);
+				clone
+			}*/
 			function swaptheme(t){	
 				document.getElementById("body").style.backgroundColor=colors[t][0];
 				document.getElementById("body").style.color=colors[t][1];
