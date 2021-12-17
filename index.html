@@ -1086,7 +1086,7 @@
 
 				document.getElementById("hi_text").innerHTML="Click on a character to equip it";
 
-				for(var iter1=0;iter1<6;iter1++){
+				for(var iter1=0;iter1<18;iter1++){
 					for(var iter2=0;iter2<10;iter2++){
 						if(char_exists[iter1][iter2]==0){
 							document.getElementById((iter1*10+iter2).toString()).style.visibility="hidden";
@@ -1560,7 +1560,7 @@
 				save();
 			};
 			//////////////////////////////////////////////////////////////////////////////////////////////INVENTORY-EQUIP
-			for(var iter=0;iter<60;iter++){
+			for(var iter=0;iter<180;iter++){
 				document.getElementById(iter).onclick=function(){
 					char_rarity=Math.floor(this.id/10);
 					char_num=this.id%10;
