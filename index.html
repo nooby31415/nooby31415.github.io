@@ -732,13 +732,13 @@
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
-				[0,0,0,1,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
-				[0,0,0,1,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0,0,0,0],
@@ -758,6 +758,7 @@
 			var c_g=[];
 			var c_b=[];
 			var click=false;
+			var rebirth=0;
 			var colors=[
 			//        back     text      top       hint       btnstrt   btnend
 				["#002244","#FFFFFF","#3388FF","#77CCFF","#0055CC","#44AAFF"], //blue
@@ -867,12 +868,12 @@
 				if(parseInt(m_hash)<10){m_hash="0"+m_hash;}
 				if(parseInt(g_hash)<10){g_hash="0"+g_hash;}
 				var inv="";
-				for(var iter1=0;iter1<6;iter1++){
+				for(var iter1=0;iter1<6+rebirth*3;iter1++){
 					for(var iter2=0;iter2<10;iter2++){
 						inv+=char_exists[iter1][iter2];
 					}
 				}
-				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+inv;
+				document.getElementById("sa_code").innerHTML=m_save+g_save+m_hash+g_hash+rebirth+inv;
 				localStorage.setItem("savecode",document.getElementById("sa_code").innerHTML);
 			}
 			function load(code){
@@ -911,20 +912,30 @@
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,1,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
-						[0,0,0,1,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
+						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0],
 						[0,0,0,0,0,0,0,0,0,0]
 					];
-					if(code.length>=78){
+					if(code.length>=199){
+						for(var iter=19;iter<199;iter++){
+							if(code.charAt(iter)=="1"){
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
+								char_rarity=Math.floor((iter-18)/10);
+								char_num=(iter-18)%10;
+							}else{
+								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+							}
+						}
+					}else if(code.length<88){
 						for(var iter=18;iter<78;iter++){
 							if(code.charAt(iter)=="1"){
 								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
@@ -1154,7 +1165,7 @@
 
 				for(var iter1=0;iter1<18;iter1++){
 					for(var iter2=0;iter2<10;iter2++){
-						if(char_exists[iter1][iter2]==0){
+						if(char_exists[iter1][iter2]==0||rebirth*3+6<=iter1){
 							document.getElementById((iter1*10+iter2).toString()).style.visibility="hidden";
 						}else{
 							document.getElementById((iter1*10+iter2).toString()).style.visibility="visible";
