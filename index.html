@@ -926,13 +926,14 @@
 						[0,0,0,0,0,0,0,0,0,0]
 					];
 					if(code.length>=199){
+						rebirth=code.charAt(18);
 						for(var iter=19;iter<199;iter++){
 							if(code.charAt(iter)=="1"){
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=1;
-								char_rarity=Math.floor((iter-18)/10);
-								char_num=(iter-18)%10;
+								char_exists[Math.floor((iter-19)/10)][(iter-19)%10]=1;
+								char_rarity=Math.floor((iter-19)/10);
+								char_num=(iter-19)%10;
 							}else{
-								char_exists[Math.floor((iter-18)/10)][(iter-18)%10]=0;
+								char_exists[Math.floor((iter-19)/10)][(iter-19)%10]=0;
 							}
 						}
 					}else if(code.length<88){
